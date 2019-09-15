@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--行内JS-->
+<button onclick="alert('已点击')">点击</button>
+<a href="javascript:alert('已点击')">点击</a>
+<!--页内JS-->
+<script>
+    // 运行到这一行时，自动执行
+    // window.onload = function () {
+    //     alert('页内JS（预加载，使得先加载HTML，再加载JS）')
+    // }
+</script>
+<!--引入外部JS文件-->
+<script src="./JS/index.js"></script>
+</body>
+</html>
