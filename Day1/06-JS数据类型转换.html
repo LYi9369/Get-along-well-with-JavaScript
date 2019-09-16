@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script id="数据类型转换">
+    //1、将Number类型转换为String类型
+    //tostring（）方法不会改变原变量
+    var num1 = 123;
+    var res1 = num1.toString();
+    console.log(res1);
+    console.log(typeof res1);
+
+    var num2 = false;
+    var res2 = num2.toString();
+    console.log(res2)
+    console.log(typeof res2);
+
+    // 2、tostring()括号里的数字就是转换为进制数
+    var num3 = 100;
+    console.log(num3.toString(2));
+
+    // 3、null和undefined没有tostring方法（），调用时会报错
+    /* var num4 = null;
+     console.log(num4.toString());
+     var num5 = undefined;
+     console.log(num5.toString());
+    */
+    // 3、使用string（）方法时，null和undefined直接转换为字符串
+    var n1 = null;
+    var s1 = String(n1);
+    console.log(s1);//null
+    console.log(typeof s1);//string
+
+    var n2 = undefined;
+    var s2 = String(n2);
+    console.log(s2);//undefined
+    console.log(typeof s2);//string
+
+    // 4、字符串拼接-任何数据和+""连接到一起都会转换为字符串
+    //不管原来的字符串是什么类型，进行拼接后都是string类型
+    var a1 = 123;
+    var b1 = a1 + "456";
+    console.log(b1); //123456
+
+    var a2 = null;
+    var b2 = a2 + "";
+    console.log(b2);//null
+    console.log(typeof b2);//string
+
+    var a3 = undefined;
+    var b3 = a3 + "";
+    console.log(b3);//undefined
+    console.log(typeof b3);//string
+
+    var a4 = true;
+    var b4 = a4 + "";
+    console.log(b4);//true
+    console.log(typeof b4);//string
+
+</script>
+</body>
+</html>

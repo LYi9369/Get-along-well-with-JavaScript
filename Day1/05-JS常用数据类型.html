@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script id="基本数据类型">
+    // （一）简单数据类型
+    // 1、JS中所有数值都是Number类型
+    var num1 = 123;
+    var num2 = 3.14;
+    console.log(typeof num1);
+    console.log(typeof num2);
+
+    // 2、内存限制，所以不能数值范围有限
+    // 最大值
+    console.log(Number.MAX_VALUE);
+    // 最小值
+    console.log(Number.MIN_VALUE);
+    // 无穷大,超过了最大值返回Infiniti
+    console.log(Number.MIN_VALUE + Number.MIN_VALUE);
+    //无穷小  超过了最小值返回-infi
+    console.log(Number.MIN_VALUE + Number.MIN_VALUE);
+    console.log(typeof Infinity);
+    console.log(typeof -Infinity);
+
+    // 3、非法数字NaN（Not A Number）
+    var num = NaN;
+    console.log(num);
+    console.log(typeof num);
+
+    // 4、字符串用双引号和单引号都可以
+    var Str1 = 'china';
+    var Str2 = "Chinese";
+    console.log(Str1);
+    console.log(Str2);
+
+    // 5、Bllean类型
+    // 数值非0则都为true
+    //非空字符串都是true
+    //所有对象都是ture，除了null（空对象）和undefined（变量未赋值）
+    var bool1 = true;
+    var bool2 = false;
+    console.log(bool1);
+    console.log(bool2);
+
+    // 6、Null和Undefined
+    var Str3 = null;//object类型
+    var Str4 = undefined;
+    console.log(Str3);
+    console.log(Str4);
+    console.log(typeof Str3);
+    console.log(typeof Str4);
+
+
+    // （二）引用/复杂数据类型
+</script>
+</body>
+</html>
