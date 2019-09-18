@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script id="if" type="text/html">
+    // var age = 20;
+    var age = prompt("输入数据：");
+    if (age < 10) {
+    alert("age < 10)");
+    } else if (age > 20) {
+    alert("age>20");
+    } else {
+    alert("[10,20]");
+    }
+</script>
+<script id="猜拳游戏">
+    var comp = Math.random() * 3;
+    var computer = parseInt(comp);
+    var player = prompt("请出拳：0-剪刀， 1-石头， 2-布");
+    // var res = computer > player ? computer : player;
+    if (player < 0 || player > 2) {
+        document.write("输入无效，重新输入");
+    } else {
+        if (player == 0 && computer == 2 || player == 1 && computer == 0 || player == 2 && computer == 1) {
+            document.write("你的出拳为：" + player + "<br>");
+            document.write("电脑出拳为：" + computer + "<br>");
+            document.write("你赢了！" + "<br>");
+        } else if (player == computer) {
+            document.write("你和电脑都出拳为" + player + "<br>");
+            document.write("平局" + "<br>");
+        } else {
+            document.write("你的出拳为：" + player + "<br>");
+            document.write("电脑出拳为：" + computer + "<br>");
+            document.write("你输了！" + "<br>");
+        }
+    }
+    // prompt("这是可以输入内容的弹窗");
+    // alert("提示框");
+    // confirm("有确定和取消两个选项");
+</script>
+</body>
+</html>

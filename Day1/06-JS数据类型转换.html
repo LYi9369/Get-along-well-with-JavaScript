@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<script id="数据类型转换">
+<script id="toString()" type="text/html">
     //1、将Number类型转换为String类型
     //tostring（）方法不会改变原变量
     var num1 = 123;
@@ -24,10 +24,12 @@
 
     // 3、null和undefined没有tostring方法（），调用时会报错
     /* var num4 = null;
-     console.log(num4.toString());
-     var num5 = undefined;
-     console.log(num5.toString());
+    console.log(num4.toString());
+    var num5 = undefined;
+    console.log(num5.toString());
     */
+</script>
+<script id="String()" type="text/html">
     // 3、使用string（）方法时，null和undefined直接转换为字符串
     var n1 = null;
     var s1 = String(n1);
@@ -39,6 +41,8 @@
     console.log(s2);//undefined
     console.log(typeof s2);//string
 
+</script>
+<script id="字符串拼接" type="text/html">
     // 4、字符串拼接-任何数据和+""连接到一起都会转换为字符串
     //不管原来的字符串是什么类型，进行拼接后都是string类型
     var a1 = 123;
@@ -59,7 +63,156 @@
     var b4 = a4 + "";
     console.log(b4);//true
     console.log(typeof b4);//string
+</script>
+<script id="字符串转数字" type="text/html">
+    // 5、纯数字的字符串转换为数字
+    var s1 = "1001";
+    var r1 = Number(s1);
+    console.log(r1);
+    console.log(typeof r1);
+    // 6、将全是空格的字符串转换为0
+    var s2 = "    ";
+    var r2 = Number(s2);
+    console.log(r2);
 
+    //7、字符串中有非数字的内容，则整个字符串转换为NaN
+    var s3 = "ab123";
+    var r3 = Number(s3);
+    console.log(r3);
+</script>
+<script id="布尔转数字" type="text/html">
+    var b1 = true;
+    var s1 = Number(b1);
+    console.log(s1);// 1
+
+    var b2 = false;
+    var s2  = Number(b2);
+    console.log(s2);
+
+
+</script>
+<script id="null和undefined转数字" type="text/html">
+    var s1 = null;
+    var r1 = Number(s1);
+    console.log(r1);//0
+
+    var s2 = undefined;
+    var r2 = Number(r2);
+    console.log(r2);//NaN
+
+</script>
+<script id="parseInt()和parseFloat()函数" type="text/html">
+    // 1、parseInt：
+    // ①匹配到第一个非数字字符时，就结束匹配并返回数字
+    var s1 = "234abc";
+    var r1 = parseInt(s1);
+    console.log(r1);//234
+
+    // ②如果第一个字符不是数字，则返回NaN，
+    var s2 = "a123";
+    var r2 = parseInt(s2);
+    console.log(r2);//NaN
+
+    var s3 = true;
+    var r3 = parseFloat(s3);
+    console.log(r3);
+    // 2、parseFloat:
+    // ①主要使用规则与parsInt一样
+    var f1 = "10.5px";
+    var t1 = parseFloat(f1);
+    console.log(t1);//10.5
+    // ②只能取一个浮点数
+    var f2 = "10.5.6.7.8px";
+    var t2 = parseFloat(f2);
+    console.log(f2);//10.5
+
+    //对于非String的字符串，会先转换为String类型，然后操作
+    // 或者直接理解为false/true都没有以数字开头，所以结果是NaN
+    var s4 = false;
+    var r4 = parseInt(s4);//false和true都转换为浮点数
+    console.log(r4);//NaN
+
+</script>
+<script id="+和-运算符" type="text/html">
+    // +是调用Number方法
+    var s1 = "1234";
+    var r1 = +s1;
+    console.log(r1);//1234
+    console.log(typeof r1);//number
+
+    var s2 = "1234px";
+    var r2 = +s2;
+    console.log(r2);//NaN
+    console.log(typeof r2);//number
+
+    var s3 = true;
+    var r3 = +s3;
+    console.log(r3);//1
+    console.log(typeof r3);//number
+
+    // -是调用Number方法然后加负号
+    var s4 = "543";
+    var r4 = -s4;
+    console.log(r4);//-543
+    console.log(typeof r4);//number
+
+</script>
+<script id="加法运算" type="text/html">
+    //1、任何值和字符串做加法运算，都是进行字符串拼接
+    var s1 = 123 + "result";
+    console.log(s1);//123result
+
+    //2、 null的值为0
+    var s2 = null + 10;
+    console.log(s2);//10
+
+    // 3、任何值和NaN做运算，值都为NaN
+    var s3 = NaN + 10;
+    console.log(s3);//NaN
+
+</script>
+<script id="取余运算" type="text/html">
+    // 4、取余，若出现小数，则取整数部分
+    var s4 = 10 % 3.5;
+    console.log(s4);//3
+    // 5、前者小于后者时，则结果为前者
+    var s5 = 2 % 10;
+    console.log(s5);//2
+</script>
+<script id="后缀表达式" type="text/html">
+    //1、 X++, X--：先用X的当前值作为表达式的值，然后再进行自增/自减运算。
+    // “先用，后变”:先用值，再使变量的值发生改变
+    var a = 20, b = 30;
+    var res = (a++) + (b++);
+    console.log(res, a, b);//50 21 31
+
+    var a = 30, b = 10;
+    var res = (a--) + (b--);
+    console.log(res, a, b);//40 29 9
+
+    // 2、前缀表达式刚好相反，“先变，后用”
+
+</script>
+<script id="三目运算符" type="text/html">
+    //结果是1就显示前面的语句，结果是0就显示后面的语句
+    //"1前 0后"
+    1 ? alert("语句1") : alert("语句2");//语句2
+    0 ? alert("语句3") : alert("语句4");//语句3
+
+</script>
+<script id="找最大数" type="text/html">
+    var max;
+    var n1 = prompt("输入第一个数");
+    var n2 = prompt("输入第二个数");
+    var n3 = prompt("输入第三个数");
+
+    var max = n1 > n2 ? n1 : n2;
+    var max = max > n3 ? max : n3;
+    console.log("最大值为：" + max);
+
+</script>
+<script>
+    document.write("不用调出控制台，直接显示在页面的内容");
 </script>
 </body>
 </html>
