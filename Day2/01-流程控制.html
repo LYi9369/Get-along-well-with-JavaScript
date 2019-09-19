@@ -16,30 +16,139 @@
     alert("[10,20]");
     }
 </script>
-<script id="猜拳游戏">
+<script id="猜拳游戏" type="text/html">
     var comp = Math.random() * 3;
     var computer = parseInt(comp);
     var player = prompt("请出拳：0-剪刀， 1-石头， 2-布");
     // var res = computer > player ? computer : player;
     if (player < 0 || player > 2) {
-        document.write("输入无效，重新输入");
+    document.write("输入无效，重新输入");
     } else {
-        if (player == 0 && computer == 2 || player == 1 && computer == 0 || player == 2 && computer == 1) {
-            document.write("你的出拳为：" + player + "<br>");
-            document.write("电脑出拳为：" + computer + "<br>");
-            document.write("你赢了！" + "<br>");
-        } else if (player == computer) {
-            document.write("你和电脑都出拳为" + player + "<br>");
-            document.write("平局" + "<br>");
-        } else {
-            document.write("你的出拳为：" + player + "<br>");
-            document.write("电脑出拳为：" + computer + "<br>");
-            document.write("你输了！" + "<br>");
-        }
+    if (player == 0 && computer == 2 || player == 1 && computer == 0 || player == 2 && computer == 1) {
+    document.write("你的出拳为：" + player + "<br>");
+    document.write("电脑出拳为：" + computer + "<br>");
+    document.write("你赢了！" + "<br>");
+    } else if (player == computer) {
+    document.write("你和电脑都出拳为" + player + "<br>");
+    document.write("平局" + "<br>");
+    } else {
+    document.write("你的出拳为：" + player + "<br>");
+    document.write("电脑出拳为：" + computer + "<br>");
+    document.write("你输了！" + "<br>");
+    }
     }
     // prompt("这是可以输入内容的弹窗");
     // alert("提示框");
     // confirm("有确定和取消两个选项");
+</script>
+<script id="switch" type="text/html">
+    // 1、示例
+    while(1) {
+    var n = prompt("输入选项：");
+    var num = Number(n);
+    switch (num) {
+    case 1:
+    console.log("条件1");
+    break;
+    case 2:
+    console.log("条件2");
+    break;
+    case 3:
+    console.log("条件3");
+    break;
+    default:
+    console.log("未找到对应选项");
+    }
+    }
+
+    // 2、case全等于问题
+    // num是字符串，所以会匹配第二个case
+    var num = '123';
+    switch (num) {
+    case 123:
+    console.log("条件1");
+    break;
+    case '123':
+    // case的值和类型都必须完全相同才会匹配到
+    console.log("条件2");
+    break;
+    }
+    // 3、会先计算switch括号里的值，然后再匹配
+    switch (100 + 200) {
+    case 100:
+    console.log("条件1");
+    break;
+    case 200:
+    console.log("条件2");
+    break;
+    case 300:
+    console.log("条件3");//条件3被执行
+    break;
+    }
+</script>
+<script id="分数评级" type="text/html">
+    //主要是这个利用除法来求级别的转换方法很巧妙
+    var n = prompt("输入分数：")
+    var num = Number(n) / 10;
+    while(1) {
+    switch (num) {
+    case 10:
+    document.write("A+级！")
+    break;
+    case 9:
+    document.write("A级！")
+    break;
+    case 8:
+    document.write("A级！")
+    break;
+    case 7:
+    document.write("A级！")
+    break;
+    case 6:
+    document.write("A级！")
+    break;
+    default:
+    document.write("不合格！")
+    }
+    }
+
+</script>
+<script id="while">
+    // var n = 0;
+    // while (n < 3000) {
+    //     n++;
+    //     document.write("爱你" + n + "遍<br><br>");
+    //
+    // }
+
+    // 累加1到10
+    // var n = 1, num = 0;
+    // while (n <= 10) {
+    //     num += n;
+    //     n++;
+    // }
+    // document.write(num);
+
+    // 找出1-100中7的倍数
+    // var n = 1;
+    // while (n <= 100) {
+    //     if (n % 7 == 0) {
+    //         document.write(n + "<br>");
+    //     }
+    //     n++;
+    // }
+
+    // 求0-100的奇数
+    var n = 0;
+    while (n < 100) {
+        n++;
+        if (n % 2 != 0) {//当n为3的时候，因为有continue，所以跳出当前循环，然后n=3继续进入循环，
+            // 再加1等于4后，执行document.write输出n为4的结果
+            continue;
+            // break;
+        }
+        document.write(n+"<br>");
+    }
 </script>
 </body>
 </html>
