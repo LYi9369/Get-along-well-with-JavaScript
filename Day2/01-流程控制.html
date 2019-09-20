@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        span {
+            display: inline-block;
+            border: 1px solid #000;
+            margin: 5px;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
 <script id="if" type="text/html">
@@ -113,7 +122,7 @@
     }
 
 </script>
-<script id="while">
+<script id="while" type="text/html">
     // var n = 0;
     // while (n < 3000) {
     //     n++;
@@ -141,14 +150,126 @@
     // 求0-100的奇数
     var n = 0;
     while (n < 100) {
-        n++;
-        if (n % 2 != 0) {//当n为3的时候，因为有continue，所以跳出当前循环，然后n=3继续进入循环，
-            // 再加1等于4后，执行document.write输出n为4的结果
-            continue;
-            // break;
-        }
-        document.write(n+"<br>");
+    n++;
+    if (n % 2 != 0) {//当n是奇数时，跳出本次循环，进行下一次循环
+    continue;
     }
+    document.write(n + "<br>");
+    }
+
+    // 求1-100的偶数
+    // var n = 0;
+    // while (n < 100) {
+    //     n++;
+    //     if (n % 2 != 0) {//n是奇数则跳出本次循环，进行下一次循环
+    //         continue;
+    //     }
+    //     document.write(n+"<br>");
+    // }
+    // var n = 0;
+    // while (n < 100){
+    //     n++;
+    //     if (n % 4 == 0) {
+    //         break;
+    //     }
+    //     console.log(n);//输出1 2 3
+    // }
+
+
+</script>
+<script id="do-while" type="text/html">
+    var n = 0;
+    do {
+    console.log(n);
+    }
+    while (n < 10)
+    {
+    n++;
+    }
+</script>
+<script id="for循环">
+    type = "text/html"
+    // for (var i = 0; i < 3000; i++) {
+    // document.write("爱你" + i + "遍<br>");
+    // }
+
+    //嵌套循环
+    // for (var i = 0; i <2 ; i++) {
+    //     document.write('好友列表' + i+'<br>');
+    //     for (var j = 0; j <3 ; j++) {
+    //         document.write('好友' + j+'<br>');
+    //     }
+    // }
+    //
+    // //打印99乘法表
+    // for (var i = 1; i <= 9; i++) {
+    //     for (var j = 1; j <= i; j++) {
+    //         document.write('<span>' + j + 'x' + i + ' = ' + (j * i) + '</span>');
+    //     }
+    //     document.write('<br>');
+    // }
+
+    //打印从少到多的三角形
+    // var n = prompt('输入要打印的三角形行数：');
+    // for (var i = 0; i <= n; i++) {
+    //     for (var j = 0; j < i; j++) {
+    //         document.write("*");
+    //     }
+    //     document.write('<br>');
+    // }
+
+    //打印倒三角
+    // var n = prompt('输入要打印的三角形行数：');
+    // for (var i = n; i >= 0; i--) {
+    //     for (var j = 0; j <= i; j++) {
+    //         document.write("*");
+    //     }
+    //     document.write('<br>');
+    // }
+
+    //打印正三角形
+    //     *
+    //    * *
+    //   * * *
+    // * * * * *
+
+    //有n行 第1行n个空格然后1个*
+    //第2行n-1个空格 2个*
+    //第3行n-2个空格 3个*
+    // ...第n行 0个空格 n个*
+
+    // var n = prompt('输入要打印的正三角形的行数：');
+
+    //问题的核心在于输出空格后如何再处理输出* ？
+    var n = 5;
+    for (var i = n; i > 0; i--) {//i=5
+        for (var j = i; j > 0; j--) {//结束这个循环时j=1
+            document.write('&nbsp;');
+        }
+        for (var k = 0; k < n; k++) {
+            for (var x = 0;  x<k ; x++) {
+                document.write('*');
+            }
+        }
+        document.write('<br>');
+    }
+
+
+    // for (var m = 0; m < n; m++) {
+    //     for (var x = 0; x <m ; x++) {
+    //         document.write('a');
+    //     }
+    // }
+
+    //打印菱形
+    // var n = prompt('输入要打印的菱形的行数：');
+    // for (var i = n; i >= 0; i--) {
+    //     for (var j = 0; j <= i; j++) {
+    //         document.write("*");
+    //     }
+    //     document.write('<br>');
+    // }
+
 </script>
 </body>
 </html>
