@@ -187,8 +187,7 @@
     n++;
     }
 </script>
-<script id="for循环">
-    type = "text/html"
+<script id="for循环" type="text/html">
     // for (var i = 0; i < 3000; i++) {
     // document.write("爱你" + i + "遍<br>");
     // }
@@ -227,48 +226,93 @@
     //     document.write('<br>');
     // }
 
+
+    //输出是平行四边形
+    // var n = 5;
+    // for (var i = n; i > 0; i--) {//i=5
+    //     for (var j = i; j > 0; j--) {//结束这个循环时j=1
+    //         document.write('&nbsp;');
+    //     }
+    //     for (var k = 0; k < n; k++) {
+    //         for (var x = 0;  x
+    <!--    <k ; x++) {-->
+    //             document.write('*');
+    //         }
+    //     }
+    //     document.write('<br>');
+    // }
+
     //打印正三角形
-    //     *
-    //    * *
-    //   * * *
-    // * * * * *
+    //    *4
+    //   * *3
+    //  * * *2
+    // * * * * *1
+
+    //    *
+    //   * *
+    //  * * *
+    // * * * *
 
     //有n行 第1行n个空格然后1个*
     //第2行n-1个空格 2个*
     //第3行n-2个空格 3个*
     // ...第n行 0个空格 n个*
 
-    // var n = prompt('输入要打印的正三角形的行数：');
-
     //问题的核心在于输出空格后如何再处理输出* ？
-    var n = 5;
-    for (var i = n; i > 0; i--) {//i=5
-        for (var j = i; j > 0; j--) {//结束这个循环时j=1
-            document.write('&nbsp;');
-        }
-        for (var k = 0; k < n; k++) {
-            for (var x = 0;  x<k ; x++) {
-                document.write('*');
-            }
-        }
-        document.write('<br>');
+
+    var n = prompt('输入要打印的正三角形的行数：');
+    for (var i = 1; i <= n; i++) {//i=5
+    for (var j = 1; j <= (n - i); j++) {//第一行输出n-1=4个空格，第二行输出n-2=3个空格，第三行输出n-3=2个空格。。。 第n含行输出n-i个空格
+    document.write('&nbsp;');
+    }
+    for (var k = 1; k <= i; k++) {
+    document.write('*&nbsp;');
+    }
+    document.write('<br>');
     }
 
 
-    // for (var m = 0; m < n; m++) {
-    //     for (var x = 0; x <m ; x++) {
-    //         document.write('a');
-    //     }
+    var n = 5;
+    for (var i = 1; i <= n; i++) {
+    for (var j = 1; j <= (n - i); j++) {//这里要从1开始，不然就不能对应到第一行n-1个空格 第二行n-2个空格
+    document.write('&nbsp;');
+    }
+    for (var k = 0; k < i; k++) {
+    document.write('*&nbsp;');
+    }
+    document.write('<br>');
+    }
+
+
+</script>
+<script id="数组" type="text/html">
+    // var arr1 = [];
+    // console.log(arr1);
+
+    // var arr2 = ['a', 'b', 'c'];
+    // console.log(arr2);
+
+    // var arr2 = ['a', 'b', 'c', 'd'];
+    // console.log(arr2[2]);
+
+    // 遍历数组
+    // var arr = ['1', '1', '1'];
+    // for (var i = 0; i < arr.length; i++) {
+    //     document.write(arr[i]);
+    //     console.log(i);
     // }
 
-    //打印菱形
-    // var n = prompt('输入要打印的菱形的行数：');
-    // for (var i = n; i >= 0; i--) {
-    //     for (var j = 0; j <= i; j++) {
-    //         document.write("*");
-    //     }
-    //     document.write('<br>');
-    // }
+
+    //去除值为0的元素,并放入新数组
+    var arr = ['0', 'a', 'b', '0', 'c', '0'];
+    var newarr = [];
+    for (var i = 0; i < arr.length; i++) {
+    if (arr[i] != 0) {
+    newarr[newarr.length] = arr[i];
+    }
+    }
+    console.log(newarr);
+
 
 </script>
 </body>
