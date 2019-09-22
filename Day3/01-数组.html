@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script id="数组" type="text/html">
+    // var arr1 = [];
+    // console.log(arr1);
+
+    // var arr2 = ['a', 'b', 'c'];
+    // console.log(arr2);
+
+    // var arr2 = ['a', 'b', 'c', 'd'];
+    // console.log(arr2[2]);
+
+    // 遍历数组
+    // var arr = ['1', '1', '1'];
+    // for (var i = 0; i < arr.length; i++) {
+    //     document.write(arr[i]);
+    //     console.log(i);
+    // }
+
+
+    //去除值为0的元素,并放入新数组
+    var arr = ['0', 'a', 'b', '0', 'c', '0'];
+    var newarr = [];
+    for (var i = 0; i < arr.length; i++) {
+    if (arr[i] != 0) {
+    newarr[newarr.length] = arr[i];
+    }
+    }
+    console.log(newarr);
+
+
+</script>
+<script id="打印正三角形"type="text/html">
+    // var n = 5;
+    // for (var i = 1; i <= n; i++) {
+    //     for (var j = 1; j <= n - i; j++) {
+    //         document.write('&nbsp;');
+    //     }
+    //     for (var j = 0; j < i; j++) {
+    //         document.write('*&nbsp;');
+    //     }
+    //     document.write('<br>');
+    // }
+
+    var n = 5;
+    for (var i = 1; i <= n; i++) {
+    for (var j = 1; j <= n - i; j++) {
+    document.write('&nbsp;');
+    }
+    for (var j = 1; j <= i; j++) {
+    document.write('*&nbsp;');
+    }
+    document.write('<br>');
+
+    }
+</script>
+</body>
+</html>

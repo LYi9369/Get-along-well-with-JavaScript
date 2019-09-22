@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script id="函数声明方式" type="text/html">
+    // 1、常用的函数声明方式
+    /* var sum = function (a, b) {
+    console.log(a + b);
+    }
+    sum(100, 200);
+    */
+
+    function sum(a, b) {
+    console.log(a + b);
+    }
+
+    sum(100, 200);
+    /*
+    function GetSum(count) {
+    var sum = 0;
+    for (var i = 0; i < count; i++) {
+    sum += i;
+    }
+    console.log(sum);
+    }
+    GetSum(200);
+    */
+
+</script>
+<script id="arguments对象" type="text/html">
+    // 比对实参和形参的个数是否一样
+    // arguments:伪数组对象,放的是函数的实参，可以用来查看实参的个数
+    function sum(num1, num2) {
+    //argements.length可以获得实参的数量
+    console.log('实参数量为' + arguments.length)
+    //function.length可以获得形参的数量
+    console.log('形参数量为' + sum.length);
+    console.log(arguments.length === sum.length);
+    }
+    sum(1, 2, 3, 4, 5, 6, 7);
+    */
+
+    /*
+    arguments[]直接替代了函数里的数组，相当于临时定义并使用的数组。
+    好处是可以不用定义数组就能够使用数组。*/
+    function GetMin() {
+    var minValue = arguments[0];//最小值
+    for (var i = 0; i < arguments, length; i++) {
+    if (minValue > arguments[i]) ;
+    minValue = arguments[i];
+    }
+    return minValue;
+    }
+
+    var min = GetMin(1, 2, 3, 4, 5);
+    console.log(min);
+
+</script>
+<script id="函数返回值" type="text/html">
+    /** 判断一个数是否为偶数
+    *
+    * @param num
+    * @constructor
+    */
+    /* function IsEven(num) {
+    if (typeof num != 'number') {
+    alert('参数不正确！');
+    return -1;
+    }
+    if (num % 2 == 0) {
+    return '偶数';
+    } else {
+    return '奇数';
+    }
+    }
+    // res用于接收函数的返回值
+    var res = IsEven(2);
+    console.log(res);*/
+
+
+</script>
+<script id="函数直接声明和函数表达式声明的区别">
+    /*1、函数直接声明
+    必须要有函数名（比如func)
+    只要定义了函数，不管在什么位置都能调用该函数。因为该方式把函数的声明提升到最顶部。
+    */
+    function func() {
+
+    }
+
+    /*2、函数表达式声明
+    只能在定义函数的后面才能调用函数，因为只是把变量提升到了最顶部。
+    */
+    var sum = function () {
+        
+    }
+</script>
+</body>
+</html>
