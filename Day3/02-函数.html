@@ -82,7 +82,7 @@
 
 
 </script>
-<script id="函数直接声明和函数表达式声明的区别">
+<script id="函数直接声明和函数表达式声明的区别" type="text/html">
     /*1、函数直接声明
     必须要有函数名（比如func)
     只要定义了函数，不管在什么位置都能调用该函数。因为该方式把函数的声明提升到最顶部。
@@ -95,7 +95,113 @@
     只能在定义函数的后面才能调用函数，因为只是把变量提升到了最顶部。
     */
     var sum = function () {
-        
+
+    }
+</script>
+<script id="匿名函数有三大类" type="text/html">
+    // 1、点击时调用该函数
+    /*document.onclick = function () {
+    alert('匿名函数-点击时调用');
+    }*/
+
+    // 2、计时器
+    /*setInterval(function () {
+    document.write('每秒爱你一遍<br>');
+    }, 1000)//1000是每次调用函数的时间间隔，单位是毫秒*/
+
+    // 3、立即执行函数
+    /* (function (num1, num2) {
+    console.log(num1, num2);
+    })(123, 456)
+    */
+</script>
+<script id="回调函数" type="text/html">
+    // 回调函数就是通过一个函数调用另一个函数
+    //加减乘除函数
+    /* function add(num1, num2) {return num1 + num2;}
+    function sub(num1, num2) {return num1 - num2;}
+    function mul(num1, num2) {return num1 * num2;}
+    function divide(num1, num2) {return num1 / num2;}
+
+    // 计算器函数
+    function cal(num1, num2, func) {
+    //我对func函数的理解是：说明这里要调用其他的函数
+    return func(num1, num2);
+    }
+    //使用
+    var result = cal(100, 200, sub);//sub后面不能加括号的原因：加了的话则为sub函数的返回值，但这里是调用sub函数
+    document.write(result);*/
+
+    // 斐波那契数列
+    /* var n = prompt('输入数列的目标项数');
+
+    function func(n) {
+    if (n == 1) return 1;
+    if (n == 2) return 1;
+    return func(n - 1) + func(n - 2);
+    }
+    document.write(func(n));*/
+</script>
+<script id="变量的作用域" type="text/html">
+    /*// 1、全局变量：在函数外部定义的变量
+    var name = '全局变量';
+
+    function f() {
+    name = '被修改的全局变量';
+    }
+
+    f();
+    console.log(name);//局部变量
+    //因为全局变量可以被修改，所以本来是输出全局变量，但因为被修改了，所以是输出‘被修改的全局变量’*/
+
+    /* function f1() {
+    resul = '不推荐这样不加var的使用方式';
+    }*/
+
+
+</script>
+<script id="预解析">
+    /*JS代码的执行是由浏览器中的JS解析器来执行的
+    执行JS代码主要分为两个过程：1、预解析过程    2、代码执行过程
+    预解析：默认会将变量和函数声明提到最顶部,进行预解析。预解析只会提升声明，不会给变量赋值和调用函数*/
+
+    /*  console.log(num1);
+      var num1 = 1;//undefined    num1没有值，但是不会报错,因为已经预解析过*/
+
+    /* console.log(fn2);
+     function fn2() {
+         console.log('函数');
+     }
+
+     var fn2 = '变量';
+     console.log(fn2);*/
+
+    var str1 = 'Tmall';//1
+    fn1();//2
+    function fn1() {//3
+        console.log(str1);//4   输出undefined
+        var str1 = '淘宝';//5
+    }
+
+    // 分析过程
+    //首先第一行定义了全局变量str1的值，
+    // 第二行执行fn1函数
+    //然后看fn1函数：console.log(str1);是输出str1，str1需要在当前作用域中寻找，因为是先调用（第4行），后定义(第5行)
+    //所以在第4行的时候，str1的值未被定义，所以输出undefined
+    /*为什么第一行的值不对第4行造成影响？
+        因为要考虑变量的作用域。在函数里的变量(str1)就要先在函数自身的范围内考虑。
+        */
+
+
+    //与上面的例子同理
+    var x = 10;
+    fn2();
+
+    function fn2() {
+        var y = 20;
+        console.log(x);//undefined
+        console.log(y);//20
+        var x = 30;
     }
 </script>
 </body>
