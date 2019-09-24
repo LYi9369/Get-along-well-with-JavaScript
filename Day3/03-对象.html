@@ -5,8 +5,116 @@
     <title>Title</title>
 </head>
 <body>
-<script>
+<script id="JS中对象的分类和创建方式" type="text/html">
+    // 1、内建对象：ES标准中的对象。如String Number Boolean
+    // 2、宿主对象：主要指由浏览提供的对象。如BOM对象，DOM对象
+    // 3、自定义对象：自己创建的对象
 
+    // 4、创建对象的方式
+
+    /* 4.1、对象字面量
+    var x1 = {
+    //属性
+    name: '小明',
+    age: 19,
+    sex: '男',
+    //行为
+    DoIt: function () {
+    console.log('小明在砍树');
+    }
+    }
+    console.log(x1);
+    console.log(typeof x1);*/
+
+    /*4.2、new Object()创建对象-缺点是不能量产
+    var x1 = new Object();
+    x1.name = '小刚';
+    x1.age = '18';
+    x1.sex = '男';
+    console.log(x1);*/
+
+    // 4.3工厂函数创建对象
+    /*function CreatPerson(name, age, sex) {
+    var p = new Object();
+    p.name = name;
+    p.age = age;
+    p.sex = sex;
+    p.DoIt = function () {
+    document.write('我会搬砖哦');
+    }
+    return p;
+    }
+
+    var x1 = CreatPerson('小明', '20', '男');
+    console.log(x1);
+    // console.log(x1.DoIt);;
+    var x2 = CreatPerson('小红', '21', '女');
+    console.log(x2);*/
+
+    //4.4自定义构造函数-可以解决工厂函数不能分辨对象类型的问题
+    function Person(name, age, sex) {
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+    this.Doit = function () {
+    console.log('我会搬砖哦~~');
+    }
+    }
+
+    var x1 = new Person('小明', '20', '男');
+    console.log(x1);
+    var x2 = new Person('小红', '21', '女');
+    console.log(x2);
+
+    function Student(id, name, age) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+    }
+
+    var stu1 = new Student('0001', '小明', '18');
+    var stu2 = new Student('0002', '小高', '21');
+    console.log(stu1);
+    console.log(stu2);
+
+    function Dog() {
+
+    }
+</script>
+<script id="this关键字">
+    /* this是一根指针（上图中的箭头就是指针，指向了内存中的某一个区间）
+ （1）普通函数执行，内部this指向全局对象window
+ （2）函数在定义this的时候是不确定的，只有在调用时才确定
+ （3）如果函数作为对象的方法，被该对象所调用，那么函数内的this则指向该对象
+ （4）构造函数中的this是一个隐式对象，所有的属性和方法都挂载到这个隐式对象上，然后通过new调用，从而实现了实例化*/
+
+    // 普通函数执行
+    /* var str = 'Tom';
+     function func() {
+         console.log(this);//this指向window
+         console.log(this.str);//因为this指向widow，而str是window里的，所以可以这样使用
+     }
+     func();*/
+
+    //如果函数作为对象的方法，被该对象所调用，那么函数内的this则指向该对象
+    /*var obj = {
+        name: '小明',
+        age: '19',
+        func: function () {//对象obj的里面的函数
+            console.log(this);
+            console.log(this.name);//如果输出的是小明，说明该行的this指向当前的对象obj，而不是window
+        }
+    }
+    obj.func();*/
+
+    //构造函数
+    function Fn() {
+        this.name = '小洪';
+        this.age = '18';
+        console.log(this);
+    }
+    Fn();
+    new Fn();
 </script>
 </body>
 </html>
