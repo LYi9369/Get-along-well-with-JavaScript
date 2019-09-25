@@ -81,40 +81,116 @@
 
     }
 </script>
-<script id="this关键字">
+<script id="this关键字" type="text/html">
     /* this是一根指针（上图中的箭头就是指针，指向了内存中的某一个区间）
- （1）普通函数执行，内部this指向全局对象window
- （2）函数在定义this的时候是不确定的，只有在调用时才确定
- （3）如果函数作为对象的方法，被该对象所调用，那么函数内的this则指向该对象
- （4）构造函数中的this是一个隐式对象，所有的属性和方法都挂载到这个隐式对象上，然后通过new调用，从而实现了实例化*/
+    （1）普通函数执行，内部this指向全局对象window
+    （2）函数在定义this的时候是不确定的，只有在调用时才确定
+    （3）如果函数作为对象的方法，被该对象所调用，那么函数内的this则指向该对象
+    （4）构造函数中的this是一个隐式对象，所有的属性和方法都挂载到这个隐式对象上，然后通过new调用，从而实现了实例化*/
 
     // 普通函数执行
     /* var str = 'Tom';
-     function func() {
-         console.log(this);//this指向window
-         console.log(this.str);//因为this指向widow，而str是window里的，所以可以这样使用
-     }
-     func();*/
+    function func() {
+    console.log(this);//this指向window
+    console.log(this.str);//因为this指向widow，而str是window里的，所以可以这样使用
+    }
+    func();*/
 
     //如果函数作为对象的方法，被该对象所调用，那么函数内的this则指向该对象
     /*var obj = {
-        name: '小明',
-        age: '19',
-        func: function () {//对象obj的里面的函数
-            console.log(this);
-            console.log(this.name);//如果输出的是小明，说明该行的this指向当前的对象obj，而不是window
-        }
+    name: '小明',
+    age: '19',
+    func: function () {//对象obj的里面的函数
+    console.log(this);
+    console.log(this.name);//如果输出的是小明，说明该行的this指向当前的对象obj，而不是window
+    }
     }
     obj.func();*/
 
     //构造函数
     function Fn() {
-        this.name = '小洪';
-        this.age = '18';
-        console.log(this);
+    this.name = '小洪';
+    this.age = '18';
+    console.log(this);
     }
     Fn();
     new Fn();
+</script>
+<script id="遍历对象" type="text/html">
+    var x1 = {
+    name: 'Bob',
+    age: '19',
+    'DoIt': function f() {
+    console.log(函数);
+    }
+    }
+    //访问对象的属性
+    /*console.log(x1.name);//方式1
+    console.log(x1['name']);//方式2-封装时使用*/
+
+    //遍历对象for..in..
+    /* for (var key in x1) {
+    console.log(key + ':' + x1[key]);
+    }*/
+
+    //删除对象的属性和方法
+    /*delete x1.age;//删除属性
+    console.log(x1);
+    delete x1.DoIt;//删除方法
+    console.log(x1);*/
+
+    //修改属性的值
+    /*x1.name = '小明';
+    console.log(x1);*/
+
+    //添加新的属性以及给该属性赋值
+    /* x1.friened = ['小刚', '小欧'];//其实是添加了一个为数据类型为数组的属性，然后赋值
+    console.log(x1);*/
+</script>
+<script id="">
+    // 1)基本数据类型在内存中的存储
+    /* var str1 = '小撩';
+     var str2 = str1;
+     str1 = 'AAA';
+     console.log(str1);//AAA
+     console.log(str2);//小撩*/
+
+    //2）复杂数据类型在内存中的存储
+    /*  function Person(neme, age, intro) {
+          this.name = name;
+          this.age = age;
+          this.intro = intro;
+      }
+
+      var p1 = new Person('小撩', '20 ', 'Hello');
+      var p2 = p1;
+      p1.name = '大撩';
+      console.log(p2.name);//大撩
+      console.log(p1 === p2);//true*/
+
+    //3基本类型作为函数的参数
+    /*var num1 = 10, num2 = 20;
+    fn(num1, num2);
+    console.log(num1, num2);//10 20
+    function fn(n1, n2) {
+        n1 *= 2;
+        n2 /= 2;
+        console.log('n1=' + n1);//20
+        console.log('n2=' + n2);//10
+    }*/
+    //4复杂类型作为函数的参数
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    function func(person) {
+        person.name = '刘德华';
+    }
+    var p = new Person('小撩', 18, '女');
+    console.log(p.name);//小撩
+    func(p);
+    console.log(p.name);//刘德华
 </script>
 </body>
 </html>
