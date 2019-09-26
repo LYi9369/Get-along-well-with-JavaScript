@@ -7,8 +7,113 @@
 <body>
 <script id="Array">
     // 1)instanceof：检测一个对象是否为数组
-    var arr = ['张三', '李四'];
-    console.log(arr instanceof Array);
+    /*var arr = ['张三', '李四'];
+    console.log(arr instanceof Array);//true
+    console.log(arr instanceof Object);//true 因为数组是Object的后代*/
+
+    //2)实际开发用的是isArray()方法
+    /* var arr = ['张三', '李四'];
+     console.log(Array.isArray(arr));*/
+
+    //3)toString()将数组转换为字符串，每一项自动添加逗号分隔
+    /*   var arr = ['张三', '李四'];
+       console.log(arr.toString());*/
+
+    //4)valueOf（）返回数组对象本身
+    /*console.log(arr.valueOf());*/
+
+    //5)join（)方法：在每个元素之间添加相同的内容
+    /*   var arr = ['张三', '李四', '王五'];
+       //需要用新变量接受修改后的数组
+       var ar = arr.join('-------');
+       console.log(ar);*/
+
+    //6)在栈顶操作：push入栈 pop出栈
+    // var arr = ['张三', '李四', '王五'];
+    /*console.log(arr.push('小撩'));//4 返回操作后的元素个数
+     console.log(arr);//输出所有元素*/
+
+    /*  console.log(arr.pop());//输出的是王五，也就是出栈元素
+      console.log(arr);//输出剩下的2个元素*/
+
+    //7)在栈底操作： unshift底部入栈 shift底部出栈
+    /*
+        arr.unshift('刘二')//在栈底部插入元素
+        console.log(arr);//"刘二", "张三", "李四", "王五"*/
+
+    /*arr.shift();//删除底部元素
+    console.log(arr);*/
+
+    //8)reverse()反转数组：会创建新数组
+    /*console.log(arr.reverse());*/
+
+    // 9）concar()数组拼接：要创建新数组
+    /*   var arr1 = ['张三', '李四', '王五'];
+       var arr2 = ['111', '222'];
+       var arr3 = ['333', '444', '555'];
+       var NewArray = arr1.concat(arr2, arr3);
+       console.log(NewArray);*/
+
+    // 10)indexof()找字符串第一次出现时的下标
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 4, 2, 9, 4, 5];
+    // console.log(arr.indexOf(6));
+    // console.log(arr.indexOf(1));//不存在就返回-1
+    // console.log(arr.indexOf(4, 2)); // 第二个参数的意思是返回4这个数从下标为2开始数，第一次出现的位置是什么
+
+    //11)  lastIndexOf（）找字符串在数组里最后一次出现时的下标
+    // indexOf是从前向后查 而lastIndexOf是从后向前查 但是二者返回索引都是从前开始数和计算的
+    // console.log(arr.lastIndexOf(2));
+
+    // 核心是理解这个3的意思是：从后往前数到下标为3时，把最后一个到下标为3这些数据去掉（一共4个连续的数据）
+    // 然后从前往后找第一次出现4时的下标（因为从前往后数第一次出现4就是从往前数最后一次出现4）
+
+    // console.log(arr.lastIndexOf(4, 3));//找4这个元素按照从后往前数的下标顺序，
+    // 当下标数到3时，开始找最后一次出现4时的下标（这个时候又要从前往后数4的下标）
+
+
+    //11)forEach()方法遍历数组
+    /*  var arr = ['张三', '李四', '王五'];
+      arr.forEach(function (value, index, array) {
+          // console.log(value);//元素内容：张三 李四 王五
+          // console.log(index);//下标：0 1 2
+          console.log(array);//输出：Array(3) [ "张三", "李四", "王五" ]
+      })*/
+
+    // 12）数组排序：sort()
+    /*function SortNumber(a, b) {
+        return a - b;//数字从小到大排序
+        // return b - a;//从大到小排序
+    }
+    var array = [10, 30, 80, 70, 90];
+    console.log(array.sort(SortNumber));*/
+
+    //13)sort（）方法源码
+    var array = [10, 30, 80, 70, 90];
+
+    function sotr(array, fnCompare) {
+        for (var i = 0; i < array.length - 1; i++) {
+            var sortFlag = true;
+            for (var j = 0; j < array.length - 1 - i; j++) {//不用每次排序都从第一个元素开始，因为前面的元素已经是有序的
+                if ((fnCompare(array[j], array[j + 1])) > 0) {//前面的元素大于后面时，if（）括号里面的是正数，就能运行if里面的内容
+                    var temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+            //判断
+            if (sortFlag) {
+                break;
+            }
+        }
+    }
+
+    function SortNumber(a, b) {
+        return a - b;//数字从小到大排序
+        // return b - a;//从大到小排序
+    }
+
+    var array = [10, 30, 80, 70, 90];
+    console.log(array.sort(SortNumber));
 </script>
 </body>
 </html>
