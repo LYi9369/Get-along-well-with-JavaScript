@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<script id="Array">
+<script id="Array" type="text/html">
     // 1)instanceof：检测一个对象是否为数组
     /*var arr = ['张三', '李四'];
     console.log(arr instanceof Array);//true
@@ -13,33 +13,33 @@
 
     //2)实际开发用的是isArray()方法
     /* var arr = ['张三', '李四'];
-     console.log(Array.isArray(arr));*/
+    console.log(Array.isArray(arr));*/
 
     //3)toString()将数组转换为字符串，每一项自动添加逗号分隔
     /*   var arr = ['张三', '李四'];
-       console.log(arr.toString());*/
+    console.log(arr.toString());*/
 
     //4)valueOf（）返回数组对象本身
     /*console.log(arr.valueOf());*/
 
     //5)join（)方法：在每个元素之间添加相同的内容
     /*   var arr = ['张三', '李四', '王五'];
-       //需要用新变量接受修改后的数组
-       var ar = arr.join('-------');
-       console.log(ar);*/
+    //需要用新变量接受修改后的数组
+    var ar = arr.join('-------');
+    console.log(ar);*/
 
     //6)在栈顶操作：push入栈 pop出栈
     // var arr = ['张三', '李四', '王五'];
     /*console.log(arr.push('小撩'));//4 返回操作后的元素个数
-     console.log(arr);//输出所有元素*/
+    console.log(arr);//输出所有元素*/
 
     /*  console.log(arr.pop());//输出的是王五，也就是出栈元素
-      console.log(arr);//输出剩下的2个元素*/
+    console.log(arr);//输出剩下的2个元素*/
 
     //7)在栈底操作： unshift底部入栈 shift底部出栈
     /*
-        arr.unshift('刘二')//在栈底部插入元素
-        console.log(arr);//"刘二", "张三", "李四", "王五"*/
+    arr.unshift('刘二')//在栈底部插入元素
+    console.log(arr);//"刘二", "张三", "李四", "王五"*/
 
     /*arr.shift();//删除底部元素
     console.log(arr);*/
@@ -49,10 +49,10 @@
 
     // 9）concar()数组拼接：要创建新数组
     /*   var arr1 = ['张三', '李四', '王五'];
-       var arr2 = ['111', '222'];
-       var arr3 = ['333', '444', '555'];
-       var NewArray = arr1.concat(arr2, arr3);
-       console.log(NewArray);*/
+    var arr2 = ['111', '222'];
+    var arr3 = ['333', '444', '555'];
+    var NewArray = arr1.concat(arr2, arr3);
+    console.log(NewArray);*/
 
     // 10)indexof()找字符串第一次出现时的下标
     var arr = [1, 2, 3, 4, 5, 6, 7, 8, 4, 2, 9, 4, 5];
@@ -73,16 +73,16 @@
 
     //11)forEach()方法遍历数组
     /*  var arr = ['张三', '李四', '王五'];
-      arr.forEach(function (value, index, array) {
-          // console.log(value);//元素内容：张三 李四 王五
-          // console.log(index);//下标：0 1 2
-          console.log(array);//输出：Array(3) [ "张三", "李四", "王五" ]
-      })*/
+    arr.forEach(function (value, index, array) {
+    // console.log(value);//元素内容：张三 李四 王五
+    // console.log(index);//下标：0 1 2
+    console.log(array);//输出：Array(3) [ "张三", "李四", "王五" ]
+    })*/
 
     // 12）数组排序：sort()
     /*function SortNumber(a, b) {
-        return a - b;//数字从小到大排序
-        // return b - a;//从大到小排序
+    return a - b;//数字从小到大排序
+    // return b - a;//从大到小排序
     }
     var array = [10, 30, 80, 70, 90];
     console.log(array.sort(SortNumber));*/
@@ -90,61 +90,136 @@
     //13)sort（）方法源码
     /*  var array = [10, 30, 80, 70, 90];
 
-      function sotr(array, fnCompare) {
-          for (var i = 0; i < array.length - 1; i++) {
-              var sortFlag = true;
-              for (var j = 0; j < array.length - 1 - i; j++) {//不用每次排序都从第一个元素开始，因为前面的元素已经是有序的
-                  if ((fnCompare(array[j], array[j + 1])) > 0) {//前面的元素大于后面时，if（）括号里面的是正数，就能运行if里面的内容
-                      var temp = array[j];
-                      array[j] = array[j + 1];
-                      array[j + 1] = temp;
-                  }
-              }
-              //判断
-              if (sortFlag) {
-                  break;
-              }
-          }
-      }
+    function sotr(array, fnCompare) {
+    for (var i = 0; i < array.length - 1; i++) {
+    var sortFlag = true;
+    for (var j = 0; j < array.length - 1 - i; j++) {//不用每次排序都从第一个元素开始，因为前面的元素已经是有序的
+    if ((fnCompare(array[j], array[j + 1])) > 0) {//前面的元素大于后面时，if（）括号里面的是正数，就能运行if里面的内容
+    var temp = array[j];
+    array[j] = array[j + 1];
+    array[j + 1] = temp;
+    }
+    }
+    //判断
+    if (sortFlag) {
+    break;
+    }
+    }
+    }
 
-      function SortNumber(a, b) {
-          return a - b;//数字从小到大排序
-          // return b - a;//从大到小排序
-      }
+    function SortNumber(a, b) {
+    return a - b;//数字从小到大排序
+    // return b - a;//从大到小排序
+    }
 
-      var array = [10, 30, 80, 70, 90];
-      console.log(array.sort(SortNumber));*/
+    var array = [10, 30, 80, 70, 90];
+    console.log(array.sort(SortNumber));*/
 
     //14)map（）方法：用法和foreach类似
     /* var array = [10, 30, 80, 70, 90];
-     var newArray = array.map(function (value, index, array) {
-         //自定义返回的内容
-         // return value * 2;//将数组所有元素*2后再返回
-         //返回大于30的元素并且*2
-         return value > 30 && value * 2;// [ false, false, 160, 140, 180 ]
-     });
-     console.log(newArray);*/
+    var newArray = array.map(function (value, index, array) {
+    //自定义返回的内容
+    // return value * 2;//将数组所有元素*2后再返回
+    //返回大于30的元素并且*2
+    return value > 30 && value * 2;// [ false, false, 160, 140, 180 ]
+    });
+    console.log(newArray);*/
 
     //15）filter()：过滤筛选
     /*  var array = [10, 30, 80, 70, 90];
-      var newArray = array.filter(function (value, index, array) {
-          return value % 2 == 0 && value > 30;
-      });
-      console.log(newArray);*/
+    var newArray = array.filter(function (value, index, array) {
+    return value % 2 == 0 && value > 30;
+    });
+    console.log(newArray);*/
 
     //16)every（且）
     /*  var array = [10, 30, 80, 70, 90];
-      var result = array.every(function (value, index) {
-          return value > 30;//如果每一个元素都满足该条件，则返回true，否则返回false
-      })
-      console.log(result);//false*/
+    var result = array.every(function (value, index) {
+    return value > 30;//如果每一个元素都满足该条件，则返回true，否则返回false
+    })
+    console.log(result);//false*/
 
     //17)some(或)
     var array = [10, 30, 80, 70, 90];
     var result = array.some(function (value, index) {
-        return value > 70;//只要有一个元素都满足该条件，则返回true，否则返回false
+    return value > 70;//只要有一个元素都满足该条件，则返回true，否则返回false
     })
     console.log(result);//true
+</script>
+<script id="Math" type="text/html">
+    /* console.log(Math.PI);
+    console.log(3 + Math.random() * 5);//3-8的随机数*/
+
+    //静态成员和实例成员
+    var Tool = {
+    height: 30,
+    doIt: function () {
+
+    }
+    }
+    //调用静态成员
+    console.log(Tool.height);
+
+    function Dog(name, sex) {
+    this.name = name;
+    this.sex = sex;
+    }
+
+    // name 和sex是Dog的实例成员
+    var dog = new Dog('Tom', '男');
+    console.log(dog.name);
+</script>
+<script id="Stirng">
+    /* var str = 'Tmall.com';
+     console.log(str.charAt(2));//a      跟数组下标一样的计数方式
+     for (var i = 0; i < str.length; i++) {
+         console.log(str.charAt(i));
+         console.log(str.charCodeAt(i));//ASCII码
+     }*/
+
+    //substr()；截取字符串
+    /*var str = 'Tmall.com';
+    var newStr = str.substr(1, 5);//输出mall.      从第二个字符开始截取，一共截取5个字符
+    var newStr = str.substr(str.lastIndexOf('a'))//all.com      从指定内容开始截取字符串,包括该字符
+    console.log(newStr);*/
+
+    //trim()：去除字符串前后的空格
+    /*var str = '    Tmall.com    ';
+    console.log(str);
+    console.log(str.trim());*/
+
+    //转换大小写
+    /*var str = '    Tmall.com    ';
+    console.log(str.toUpperCase());
+    console.log(str.toLocaleLowerCase());*/
+
+    //URL转对象
+
+    function getUrlParams(url) {
+        //起点
+        var index = url.indexOf('?') + 1;
+        var params = url.substr(index);
+        var paramsArr = params.split('&');//split()方法可以以规定的字符串为分割点，将分割点之间的内容转换为数组
+        // console.log(paramsArr);
+
+        var obj = {};
+        paramsArr.forEach(function (value, index, array) {
+            var tempArr = value.split('=');
+            // console.log(tempArr);
+            var key = tempArr[0];
+            obj[key] = tempArr[1];
+            // console.log(obj);
+        });
+        return obj;
+    }
+
+    // var url = 'https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22n&id%22&%3A%22news_1004373&0547308837681%22%7D&n_type=0&p_from=1';
+    var url = 'https://mbd.baidu.com/newspage/data/landingsuper?sdad=xas&aa=asdad&asdasd=asdasd&asdasd=werfqnk';
+
+    var obj = getUrlParams(url);
+    console.log(obj);
+    console.log(obj.aa);//将&后面为aa的内容提取了出来
+
 </script>
 </body>
 </html>
