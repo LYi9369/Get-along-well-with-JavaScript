@@ -24,7 +24,9 @@
     /*^\w+@\w+\.\w+$
     主要是\.表示的是匹配点号
     */
-
+    var reg = new RegExp('ab[a-z]', 'i');//写好正则表达式
+    var str = 'ABC';//创建用于验证表达式是否正确的变量
+    console.log(reg.test(str));//输出验证结果
 </script>
 </body>
 </html>
