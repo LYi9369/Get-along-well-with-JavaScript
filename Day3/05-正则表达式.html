@@ -24,9 +24,51 @@
     /*^\w+@\w+\.\w+$
     主要是\.表示的是匹配点号
     */
-    var reg = new RegExp('ab[a-z]', 'i');//写好正则表达式
-    var str = 'ABC';//创建用于验证表达式是否正确的变量
-    console.log(reg.test(str));//输出验证结果
+    /*var reg = new RegExp('ab[a-z]', 'i');//写好正则表达式      i是对忽略大小写的匹配
+    var str = 'ABC';//创建用于验证表达式是否正确的变量          前两个字符是要匹配ab（不区别大小写），最后一个字符是要a-z的任意一个字符（同样不限制大小写）
+    console.log(reg.test(str));//输出验证结果                   true*/
+
+    //4、字面量
+    /* var reg = /ab[a-z]/i; //等价于  var reg = new RegExp('ab[a-z]', 'i');
+     var str = 'ABC';
+     console.log(reg.test(str));//true*/
+
+    //i是忽略大小写       g是全局匹配      gi是忽略大小写 + 全局匹配
+
+
+    //匹配日期
+    /*var dateStr = '2019-12-3';
+    var dateReg = /^\d{4}-\d{1,2}-\d{1,2}$/;
+    console.log(dateReg.test(dateStr));//true  匹配成功*/
+
+    //匹配手机
+    /*var phoneStr = '14507972421';
+    var phoneReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$/;//主要是注意这个括号，范围是把前面的号段覆盖掉了
+    //可以匹配以130-9        145-7       150-9         180-9的所有手机号码
+    console.log(phoneReg.test(phoneStr));*/
+
+    //exec（）提取
+    /* var qqStr = '小明：7819264,小刚：12984718,小红：1278937189';
+     var reg = /\d+/g;//g是全局匹配
+     /!* var content = reg.exec(qqStr);
+      console.log(content);// Array [ "7819264" ]     这样提取的是数组
+      console.log(content[0]);//7819264       这样提取的是数据，最好的形式是这种*!/
+
+     //利用循环提取所有的数字：
+     do {
+         var content = reg.exec(qqStr);//content的值是提取后的数字
+         if (content) {//只要content还有值，那就继续输出提取的内容
+             console.log(content[0]);
+         }
+     } while (content)//只要content还有值，那就继续输出提取的内容*/
+
+    //match（）提取多个指定的内容
+    /*var qqStr = '小明：7819264,小刚：12984718,小红：1278937189';
+    var reg = /\d+/g;
+    var qqArray = qqStr.match(reg);
+    console.log(qqArray);//Array(3) [ "7819264", "12984718", "1278937189" ]*/
+
+
 </script>
 </body>
 </html>
