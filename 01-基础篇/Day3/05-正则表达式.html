@@ -68,6 +68,50 @@
     var qqArray = qqStr.match(reg);
     console.log(qqArray);//Array(3) [ "7819264", "12984718", "1278937189" ]*/
 
+    //分组提取
+    /*    var dataStr = '2019-12-24';
+        var dataReg = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+        console.log(dataReg.test(dataStr));//true   dataStr中的内容符合dataReg正则表达式的提取规则要求
+        if (dataReg.test(dataStr)) {
+            console.log(RegExp.$1);//2019
+            console.log(RegExp.$2);//12
+            console.log(RegExp.$3);//24         分别输出每个括号中的内容
+        }*/
+
+    //替换
+    /* var str = '       this is my programmer   ';
+     //\s 	匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
+     // str = str.replace(/\s/g, '*');//将所有空格替换为*
+     // console.log(str);//!*****this*is*my*programmer***
+     // str = str.replace(/^\s*!/, '*');
+     // console.log(str);//只替换开头的所有空格为一个*
+     str = str.replace(/\s*$/, '*');
+     console.log(str);//只替换结尾的所有空格为一个*       */
+
+    //分割:以指定内容为分割符
+    /*   var dateStr = '2020-2-24';
+       console.log(dateStr.split('-'));//  Array(3) [ "2020", "2", "24" ]*/
+
+    //贪婪模式和非贪婪模式
+    /*var str = 'aaaaabbbbbbbaaaaaa';
+    var res1 = str.match(/a.*b/);
+    console.log(res1);//Array [ "aaaaabbbbbbb" ] 默认为贪婪模式  匹配所有的b
+    var res2 = str.match(/a.*?b/);
+    console.log(res2);//Array [ "aaaaab" ]非贪婪模式 只匹配一个b*/
+
+    //验证手机号码
+    var phohe = document.getElementById('phone');
+    //当光标离开输入框
+    phone.onblur = function (ev) {
+        var phoneReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$/;
+        if (!phoneReg.test(this.value)) {//不匹配的时候，输入框变为红色
+            this.style.borderColor = '#ff0000';
+        } else {//匹配则输入框不变
+            this.style.borderColor = '#cccccc';
+
+        }
+
+    }
 
 </script>
 </body>

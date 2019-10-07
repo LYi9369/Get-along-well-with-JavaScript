@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="id" class="class" name="name">按钮</button>
+<script>
+    window.onload = function () {
+        var btn1 = document.getElementById('id');//通过id来拿
+        var btn2 = document.getElementsByClassName('class')[0];//通过class来拿
+        var btn3 = document.getElementsByTagName('button')[0];//通过标签来拿
+        var btn4 = document.getElementsByName('name')[0];//通过name来拿
+        var btn5 = document.querySelector('#id');//通过id选择器来拿
+        var btn6 = document.querySelectorAll('#id')[0];//拿到所有id选择器是btn的标签
+        console.log(btn1);
+        console.log(btn2);
+        console.log(btn3);
+        console.log(btn4);
+        console.log(btn5);
+        console.log(btn6);
+    }
+</script>
+
+<!--<button class="class" id="id">点击</button>
+<script>
+    window.onload = function () {
+        var btn1 = document.getElementById('class');
+        var btn2 = document.getElementsByClassName('id')[0];
+        console.log(btn1);
+        console.log(btn2);
+    }</script>-->
+</body>
+</html>

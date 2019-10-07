@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn">按钮</button>
+<script>
+    //获取div对象
+    var box = document.getElementById('box');//用新变量接受获取到的div对象
+    console.log(box);
+    box.innerText = 'abc';//能够在div中输出abc字符串
+
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+        alert('已成功点击该按钮！');
+        //  confirm('已成功点击该按钮！');
+    }
+</script>
+</body>
+</html>
