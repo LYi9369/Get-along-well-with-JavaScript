@@ -7,8 +7,12 @@
 <body>
 <button id="id" class="class" name="name">按钮</button>
 <script>
+    var btn = document.getElementsByClassName('class')[0];
+    console.log(btn);
+    console.log('window.onload =funcion ()的作用是在加载完HTML后再执行js代码')
+
     window.onload = function () {
-        var btn1 = document.getElementById('id');//通过id来拿
+      /*常用*/  var btn1 = document.getElementById('id');//通过id来拿
         var btn2 = document.getElementsByClassName('class')[0];//通过class来拿
         var btn3 = document.getElementsByTagName('button')[0];//通过标签来拿
         var btn4 = document.getElementsByName('name')[0];//通过name来拿

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <button class="btn">按钮</button>
+    <span id="span">
+        <a href="#">撩课一下</a>
+    </span>
+    <p class="lk">段落</p>
+    <div>AAAAAAA</div>
+    <script id="获取父节点--获取上层节点" type="text/html">
+
+        window.onload = function (ev) {// window.onload =funcion ()的作用是在加载完HTML后再执行js代码'
+
+        var a = document.getElementsByTagName('a')[0];
+        console.log(a.parentNode);//用 .parentNode 可以拿到a标签的父节点span
+        }
+    </script>
+    <script id="获取兄弟节点--获取上一个或下一个节点" type="text/html">
+        var span = document.getElementById('span');
+        //下一个兄弟节点
+        var nextElement = span.nextElementSibling || span.nextSibling;//nextElementSibling是取元素节点，而nextSibling是取除了元素节点外的属性、文本、注释等节点
+        console.log(nextElement);
+
+        //上一个兄弟节点
+        var preElement = span.previousElementSibling || span.nextSibling;
+        console.log(preElement);
+    </script>
+    <script id="获取所有节点" type="text/html">
+        var box = document.getElementById('box');
+        //获取子节点
+        // console.log(box.firstElementChild || box.firstChild);
+        // //获取最后一个子节点
+        // console.log(box.lastElementChild || box.lastChild);
+        //获取所有的节点
+        console.log(box.childNodes);
+        //获取所有元素
+        console.log(box.children);
+    </script>
+    <script id="根据元素类型值来存放不同类型的元素">
+        window.onload = function () {
+            //1、获取标签
+            var box = document.getElementById('box');
+            //2、获取标签内部的所有节点
+            var allNodeLists = box.childNodes;
+            //3、过滤元素节点
+            var newListArr = [];//例如可以将所有类型值为1的元素存入该数组
+            allNodeLists.forEach(function (value, key, parent) {
+                if (value.nodeType == 1) {
+                    newListArr.push(value);
+                }
+            })
+            console.log(newListArr);
+        }
+    </script>
+</div>
+</body>
+</html>

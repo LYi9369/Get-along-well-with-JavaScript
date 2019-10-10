@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <p id="word">撩课学院</p>
+    <button id="btn">点我</button>
+</div>
+<script id="往页面中插入图片标签">
+    window.onload = function (ev) {
+        //CRUD操作--增删改查操作
+        var box = document.getElementsByClassName('box')[0];
+        //1、创建节点
+        var img = document.createElement('img');
+        img.src = 'img/img1.jpg';
+        //box.appendChild(img);//在这里插入了图片
+
+        var btn = document.getElementsByTagName('button')[0];
+        box.insertBefore(img, btn);//insertBefore是将img插入btn前面
+    }
+</script>
+</body>
+</html>
