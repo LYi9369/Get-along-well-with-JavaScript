@@ -8,19 +8,52 @@
 <div class="box">
     <p id="word">撩课学院</p>
     <button id="btn">点我</button>
-</div>
-<script id="往页面中插入图片标签">
-    window.onload = function (ev) {
-        //CRUD操作--增删改查操作
-        var box = document.getElementsByClassName('box')[0];
-        //1、创建节点
-        var img = document.createElement('img');
-        img.src = 'img/img1.jpg';
-        //box.appendChild(img);//在这里插入了图片
 
-        var btn = document.getElementsByTagName('button')[0];
-        box.insertBefore(img, btn);//insertBefore是将img插入btn前面
+    <img>
+</div>
+<script id="往页面中插入图片标签" type="text/html">
+    window.onload = function (ev) {
+    //CRUD操作--增删改查操作
+    // var box = document.getElementsByClassName('box')[0];
+    //1、创建节点
+    /*  var img = document.createElement('img');
+    img.src = 'img/img1.jpg';
+    //box.appendChild(img);//在这里插入了图片
+
+    var btn = document.getElementsByTagName('button')[0];
+    box.insertBefore(img, btn);//insertBefore是将img插入btn前面*/
+
+    //2、删除节点
+    /* var btn = document.getElementsByTagName('button')[0];//删除按钮
+    btn.remove();
+    box.removeChild(btn);*/
+
+    //3、克隆标签
+    var box = document.getElementsByClassName('box')[0];//克隆整个box的div标签
+    var newBox = box.cloneNode(true);
+    document.body.appendChild(newBox);
     }
+</script>
+<script id="获取标签属性、设置标签属性">
+    //1）获取标签属性
+    window.onload = function (ev) {
+        //1、获取节点
+        var img = document.getElementsByTagName('img')[0];
+        console.log(img);
+        //2、获取标签属性
+        console.log(img.getAttribute('src'));//输出img标签的src属性
+        console.log(img.getAttribute('alt'));//输出img标签的alt属性
+
+        //2）设置属性
+        img.setAttribute('src', 'img/img1.jpg');//将img的src属性设置为指定图片 'img/img1.jpg'
+        img.setAttribute('alt', '自己设置img的alt属性')
+        /*除了默认属性，也可以设置任意的自定义属性*/
+        img.setAttribute('abc', '自定义属性1');
+        img.setAttribute('AAA', '自定义属性2');
+
+        //3)删除属性
+        img.removeAttribute('abc');
+    };
 </script>
 </body>
 </html>

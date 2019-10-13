@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: relative;
+            margin-left: 30%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        #close {
+            position: absolute;
+            top: 10px;
+            left: 320px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!--本质是找到父标签，然后隐藏/移除父标签-->
+<div id="box">
+    <div id="icon"><img src="img/img_02.jpg" alt=""></div>
+    <div id="close"><img src="img/close.jpg" width="20px" alt=""></div>
+</div>
+<script>
+    window.onload = function (ev) {
+        //1、获取标签
+        var close = document.getElementById('close');
+        //2、监听点击
+        close.onclick = function () {
+            this.parentNode.remove();//移除父标签
+            // this.parentNode.style.display = 'none';//隐藏父标签
+        }
+    }
+</script>
+</body>
+</html>

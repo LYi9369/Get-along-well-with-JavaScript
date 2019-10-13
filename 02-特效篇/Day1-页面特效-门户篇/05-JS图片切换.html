@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 1200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img id="icon" src="img/icon_01.png" alt="">
+    <p></p>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+</div>
+<script>
+    window.onload = function (ev) {
+        //1)获取标签
+        var icon = document.getElementById('icon');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+        //2)点击
+        var currentIndex = 1, minIndex = 1, maxIndex = 9;
+        prev.onclick = function (ev1) {
+            if (currentIndex === minIndex) {//最小边界
+                currentIndex = maxIndex;
+            } else {
+                currentIndex--;
+            }
+            icon.setAttribute('src', 'img/icon_0' + currentIndex + '.png');
+            console.log(icon.src);
+        };
+
+        next.onclick = function (ev1) {//最大边界
+            if (currentIndex === maxIndex) {
+                currentIndex = minIndex;
+            } else {
+                currentIndex++;
+            }
+            icon.setAttribute('src', 'img/icon_0' + currentIndex + '.png');
+            console.log(icon.src);
+        }
+    }
+</script>
+</body>
+</html>
