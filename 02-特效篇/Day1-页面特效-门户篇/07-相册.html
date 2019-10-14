@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            margin: 10px 10px 0 0;
+        }
+
+        #des {
+            position: relative;
+            top: 20px;
+            left: 40px;
+            color: #FFA00B;
+            font-size: 20px;
+        }
+
+        #big_img {
+            position: relative;
+            top: 20px;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+<p id="des">蒲公英</p>
+<!--大图展示-->
+<img id="big_img" src="img/1.jpg" width="540" alt="">
+<!-- 小图列表-->
+<ul id="fengjing">
+    <li>
+        <a href="img/1.jpg" title="蒲公英">
+            <img src="img/1.jpg" width="100" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="img/2.jpg" title="热气球">
+            <img src="img/2.jpg" width="100" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="img/3.jpg" title="小屋">
+            <img src="img/3.jpg" width="100" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="img/4.jpg" title="高山">
+            <img src="img/4.jpg" width="100" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="img/5.jpg" title="公路">
+            <img src="img/5.jpg" width="100" alt="">
+        </a>
+    </li>
+</ul>
+<script>
+    window.onload = function (ev) {
+        //1、获取需要的标签
+        var des = document.getElementById('des');
+        var big_img = document.getElementById('big_img');
+        var fengjing = document.getElementById('fengjing');
+        //重点在这里：拿到ul里面的a标签
+        var aList = fengjing.getElementsByTagName('a');
+        console.log(aList);
+
+        //2、事件绑定
+        for (var i = 0; i < aList.length; i++) {
+            var a = aList[i];
+            // console.log(a);
+            a.onclick = function (ev1) {
+                des.innerText = this.title;   //innerText指des的文本内容
+                big_img.setAttribute('src', this.href);
+                return false;//只执行上面函数的代码，不进行其他操作的固定格式
+            };
+        }
+
+    };
+</script>
+</body>
+</html>

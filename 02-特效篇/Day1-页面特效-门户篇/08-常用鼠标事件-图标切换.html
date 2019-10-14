@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<img src="./img/img_01.jpg" width="250" alt="">
+<script>
+    window.onload = function (ev) {
+        var logo = document.getElementsByTagName('img')[0];
+        //1）新的事件
+        logo.onmouseover = function (ev) {
+            console.log('鼠标进入图片时，就会触发该函数');
+            this.setAttribute('src', './img/img_02.jpg')
+        };
+
+        logo.onmouseout = function (ev) {
+            console.log('鼠标离开图片时，就会触发该函数');
+            this.setAttribute('src', './img/img_01.jpg')
+        };
+
+        logo.onmouseout = function (ev) {
+            console.log('鼠标离开图片时，就会触发该函数');
+            this.setAttribute('src', './img/img_01.jpg')
+        };
+
+        logo.onmousemove = function (ev) {
+            console.log('鼠标在图片上移动时，就会触发该函数');
+
+        };
+
+    }
+</script>
+</body>
+</html>

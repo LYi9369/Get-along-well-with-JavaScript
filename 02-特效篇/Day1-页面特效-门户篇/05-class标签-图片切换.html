@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            margin: 0 auto;
+            position: relative;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img class="icon" src="img/icon_01.png" alt="">
+    <p></p>
+    <button class="prev">上一张</button>
+    <button class="next">下一张</button>
+</div>
+<script>
+    window.onload = function (ev) {
+        //1、获取标签
+        var icon = document.getElementsByClassName('icon')[0];
+        var prev = document.getElementsByClassName('prev')[0];
+        var next = document.getElementsByClassName('next')[0];//与id名不同的是，需要加[0]。所以还是要用id更方便
+
+        //2、监听点击
+        var currentIndex = 1, minIndex = 1, maxIndex = 9;
+        prev.onclick = function (ev1) {
+            if (currentIndex === 1) {
+                currentIndex = maxIndex;
+            } else {
+                currentIndex--;
+            }
+            icon.setAttribute('src', 'img/icon_0' + currentIndex + '.png');
+        };
+        next.onclick = function (ev2) {
+            if (currentIndex === maxIndex) {
+                currentIndex = minIndex;
+            } else {
+                currentIndex++;
+            }
+            icon.setAttribute('src', 'img/icon_0' + currentIndex + '.png');
+        };
+    }
+</script>
+</body>
+</html>

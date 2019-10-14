@@ -31,6 +31,7 @@
         var close = document.getElementById('close');
         //2、监听点击
         close.onclick = function () {
+            //this指向该函数的对象。本this指向的是close这个标签
             this.parentNode.remove();//移除父标签
             // this.parentNode.style.display = 'none';//隐藏父标签
         }

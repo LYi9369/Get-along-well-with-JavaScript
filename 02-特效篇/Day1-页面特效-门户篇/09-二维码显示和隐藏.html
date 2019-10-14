@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #e_coder {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            top: 20%;
+            background: url("./img/e_coder_normal.jpg") no-repeat;
+            cursor: pointer;
+        }
+
+        img {
+            position: absolute;
+            margin-top: 20%;
+            left: 10%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="e_coder">
+    <div id="e_app">
+<!--        <img src="img/e_coder.jpg" alt="公众号" width="150">-->
+    </div>
+</div>
+<script>
+    window.onload = function (ev) {
+        //1、获取标签
+        var e_coder = document.getElementById('e_coder');
+        var e_app = document.getElementById('e_app');
+
+        //2、监听鼠标进入图片
+        e_coder.onmouseover = function (ev) {
+
+
+        }
+
+    }
+</script>
+</body>
+</html>
