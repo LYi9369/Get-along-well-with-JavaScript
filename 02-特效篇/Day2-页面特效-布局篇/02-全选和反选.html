@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #panel {
+            width: 400px;
+            box-shadow: 0 0 10px #000000;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .panel-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .pannel-footer {
+            text-align: center;
+            margin-top: 10px;
+            /*background-color: red;*/
+        }
+
+        .pannel-footer button {
+            /*background-color: blueviolet;*/
+            margin: 5px 10px 5px 10px;
+            padding: 5px;
+            color: white;
+            font-size: 20px;
+            background-color: #38f;
+        }
+
+        label {
+            margin-left: 50px;
+            /*background-color: red;*/
+        }
+    </style>
+</head>
+<body>
+<div id="panel">
+    <section class="panel-header">
+        <h2>歌曲排行榜</h2>
+        <hr>
+    </section>
+    <section class="panel-content">
+        <label><input type="checkbox"> </label>歌曲1 <br>
+        <label><input type="checkbox"> </label>歌曲2 <br>
+        <label><input type="checkbox"> </label>歌曲3 <br>
+        <label><input type="checkbox"> </label>歌曲4 <br>
+        <label><input type="checkbox"> </label>歌曲5 <br>
+        <label><input type="checkbox"> </label>歌曲6 <br>
+        <label><input type="checkbox"> </label>歌曲7 <br>
+        <label><input type="checkbox"> </label>歌曲8 <br>
+        <label><input type="checkbox"> </label>歌曲9 <br>
+    </section>
+    <section class="pannel-footer">
+        <hr>
+        <button id="allSelect">全选</button>
+        <button id="cancelSelect">取消选中</button>
+        <button id="reverseSelect">反选</button>
+    </section>
+</div>
+<script>
+    window.onload = function (ev) {
+        //1、获取所有复选框
+        var inputs = document.getElementsByTagName("input");
+        // var inputs = document.querySelectorAll("input");
+
+        //2、全选
+        $('allSelect').addEventListener('click', function (ev) {
+            for (var i = 0; i < inputs.length; i++) {
+                var input = inputs[i];
+                input.checked = true;
+            }
+        });
+
+        //3、取消全选
+        $('cancelSelect').addEventListener('click', function (ev) {
+            for (var i = 0; i < inputs.length; i++) {
+                var input = inputs[i];
+                input.checked = false;
+            }
+        });
+
+        //4、反选
+        $('reverseSelect').addEventListener('click', function (ev) {
+            for (var i = 0; i < inputs.length; i++) {
+                var input = inputs[i];
+                input.checked = !input.checked;/*将现有的checked值取反，即是取反*/
+            }
+        });
+
+        //定义$函数，用于获取标签
+        function $(id) {
+            return typeof id === 'string' ? document.getElementById(id) : null;
+        }
+
+    }
+</script>
+</body>
+</html>

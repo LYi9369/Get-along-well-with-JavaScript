@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            background: url("images/1.jpg") no-repeat;
+            background-size: cover;
+
+        }
+
+        #box {
+            background-color: rgba(255, 255, 255, .5);
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        img {
+            width: 180px;
+            height: 120px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+        <li><img src="images/5.jpg" alt=""></li>
+    </ul>
+
+</div>
+<script>
+    window.onload = function (ev) {
+        //1、获取标签
+        var box = document.getElementById('box');
+        /*遇到需要拿多个li标签的情况时，就用这种方式来一次性拿所有的标签。*/
+        var allList = box.getElementsByTagName('li');/*拿子标签的方式*/
+
+        //2、遍历监听
+        /*类似于数组，但不是数组。*/
+        for (var i = 0; i < allList.length; i++) {
+            //2.1、取出单个li标签
+            var sLi = allList[i];
+            sLi.index = i + 1;//手动修改新数组的下标
+            //2.2、监听点击事件
+            sLi.addEventListener('click', function (ev) {
+                /*this.index就是图片的下标*/
+                document.body.style.background = 'url("images/' + this.index + '.jpg") no-repeat';
+            })
+        }
+    }
+</script>
+</body>
+</html>

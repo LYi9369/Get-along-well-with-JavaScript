@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="输入姓名">
+<script>
+    window.onload = function (ev) {
+        var input = document.getElementsByTagName("input")[0];
+
+        //1、获得焦点
+        input.onfocus = function () {
+            this.style.width = '200px';
+            this.style.height = '100px';
+            this.style.outline = 'none';
+            this.style.fontSize = '20px';
+        }
+        //2、失去焦点
+        input.onblur = function (ev) {
+            this.style.backgroundColor = 'skyblue';
+
+        }
+
+    }
+</script>
+</body>
+</html>

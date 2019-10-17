@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>上传图片：</label>
+<input id="file" type="file">
+<script>
+    //1、获取标签
+    window.onload = function (ev) {
+        var file = document.getElementById('file');
+    }
+    //2、监听上传
+    file.onchange = function (ev) {//.onchange方法可以用于监听是否上传成功
+        //2.1、获取用户上传的文件类型
+        // alert('上传成功！');
+        var path = this.value;
+        //2.2/截取字符串
+        var suffix = path.substr(path.lastIndexOf('.'));
+        console.log(suffix);
+        //2.3、统一转换为小写
+        var lowSuffix = suffix.toLocaleLowerCase();
+        //2.4、判断
+        if (lowSuffix === '.jpg' || lowSuffix === '.png' || lowSuffix === 'gif') {
+            alert('上传格式正确！')
+        } else {
+            alert('上传格式错误！')
+
+        }
+    }
+</script>
+</body>
+</html>

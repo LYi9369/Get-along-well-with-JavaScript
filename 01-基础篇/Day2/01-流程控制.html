@@ -187,7 +187,8 @@
     n++;
     }
 </script>
-<script id="for循环" type="text/html">
+<script id="for循环" >
+    type="text/html"
     // for (var i = 0; i < 3000; i++) {
     // document.write("爱你" + i + "遍<br>");
     // }
@@ -200,13 +201,13 @@
     //     }
     // }
     //
-    // //打印99乘法表
-    // for (var i = 1; i <= 9; i++) {
-    //     for (var j = 1; j <= i; j++) {
-    //         document.write('<span>' + j + 'x' + i + ' = ' + (j * i) + '</span>');
-    //     }
-    //     document.write('<br>');
-    // }
+    //打印99乘法表
+    for (var i = 1; i <= 9; i++) {
+        for (var j = 1; j <= i; j++) {
+            document.write('<span>' + j + 'x' + i + ' = ' + (j * i) + '</span>');
+        }
+        document.write('<br>');
+    }
 
     //打印从少到多的三角形
     // var n = prompt('输入要打印的三角形行数：');
@@ -260,7 +261,7 @@
 
     //问题的核心在于输出空格后如何再处理输出* ？
 
-    var n = prompt('输入要打印的正三角形的行数：');
+   /* var n = prompt('输入要打印的正三角形的行数：');
     for (var i = 1; i <= n; i++) {//i=5
     for (var j = 1; j <= (n - i); j++) {//第一行输出n-1=4个空格，第二行输出n-2=3个空格，第三行输出n-3=2个空格。。。 第n含行输出n-i个空格
     document.write('&nbsp;');
@@ -282,7 +283,7 @@
     }
     document.write('<br>');
     }
-
+*/
 
 </script>
 </body>

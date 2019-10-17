@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            border: 1px solid #CCCCCC;
+            width: 360px;
+            height: 70px;
+            margin: 100px auto;
+            padding-top: 360px;
+            background: url("./images/01big.jpg") no-repeat;
+
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li id="li01"><img src="./images/01.jpg" alt=""></li>
+        <li id="li02"><img src="./images/02.jpg" alt=""></li>
+        <li id="li03"><img src="./images/03.jpg" alt=""></li>
+        <li id="li04"><img src="./images/04.jpg" alt=""></li>
+        <li id="li05"><img src="./images/05.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    window.onload = function (ev) {
+        //1、获取标签
+        /*var li01 = document.getElementById('li01');
+        var li02 = document.getElementById('li02');
+        var li03 = document.getElementById('li03');
+        var li04 = document.getElementById('li04');
+        var li05 = document.getElementById('li05');
+        var box = document.getElementById('box');*/
+        var li01 = $('li01');
+        var li02 = $('li02');
+        var li03 = $('li03');
+        var li04 = $('li04');
+        var li05 = $('li05');
+        var box = $('box');
+        //2、监听鼠标事件
+        li01.onmouseover = function (ev) {
+            // box.style.background = 'url("./images/01big.jpg") no-repeat';
+            changeImg('box', 1);
+
+        };
+        li02.onmouseover = function (ev) {
+            // box.style.background = 'url("./images/02big.jpg") no-repeat';
+            changeImg('box', 2);
+
+        };
+        li03.onmouseover = function (ev) {
+            // box.style.background = 'url("./images/03big.jpg") no-repeat';
+            changeImg('box', 3);
+
+        };
+        li04.onmouseover = function (ev) {
+            // box.style.background = 'url("./images/04big.jpg") no-repeat';
+            changeImg('box', 4);
+
+        };
+        li05.onmouseover = function (ev) {
+            // box.style.background = 'url("./images/05big.jpg") no-repeat';
+            changeImg('box', 5);
+        };
+
+        /**
+         *根据id获取标签
+         * @param id
+         */
+        function $(id) {
+            // return document.getElementById(id);
+            return typeof id === 'string' ? document.getElementById(id) : null;//用条件运算符判断输入的是否为string类型
+        }
+
+        /**
+         * 改变传入标签的背景
+         * @param {String}tag   传入的标签名称
+         * @param {number}index
+         */
+        function changeImg(liId, index) {
+            $(liId).style.background = 'url("./images/0' + index + 'big.jpg") no-repeat';
+        }
+    }
+</script>
+</body>
+</html>
