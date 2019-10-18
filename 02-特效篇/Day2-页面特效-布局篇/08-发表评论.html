@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        #my_textarea {
+            width: 80%;
+            height: 120px;
+        }
+
+        .box-top {
+            margin-bottom: 20px;
+        }
+
+        #ul {
+            margin: 0 80px;
+        }
+
+        #ul li {
+            border-bottom: 1px dashed #ccc;
+            color: red;
+            line-height: 44px;
+        }
+
+        #ul li a {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="box-top">
+        <label>发表评论：</label>
+        <textarea id="my_textarea" cols="60" rows="10"></textarea>
+        <button id="btn">发表</button>
+    </div>
+    <ul id="ul">
+
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        //1.监听按钮点击
+        $('btn').addEventListener('click', function () {
+            var my_textarea = $('my_textarea');
+            //1.获取输入框中的内容
+            var content = $('my_textarea').value;//拿到my_textarea里面的内容
+            // alert('1');
+            //2.判断
+            if (content.length === 0) {
+                alert('请输入评论');
+                return;
+            }
+
+            //3.创建li标签放入ul
+            var li = document.createElement('li');//.createElement 创建新的li标签
+            li.innerHTML = content + '<a href="javascript:;">删除</a>';
+            $('ul').insertBefore(li, $('ul').children[0]);//往第一个li前插入新的li
+
+            //4.清空输入框的内容
+            // $('my_textarea').value = '';
+            my_textarea.value = '';//两者是等价的
+
+            //5.删除评论
+            var as = ul.getElementsByTagName('a');
+            console.log(as);
+            for (var i = 0; i < as.length; i++) {
+                var a = as[i];
+                a.addEventListener('click', function (ev) {
+                    this.parentNode.remove();//.parentNode是获得父标签
+
+                })
+
+            }
+
+
+        });
+
+
+        function $(id) {
+            return typeof id === 'string' ? document.getElementById(id) : null;
+        }
+
+        /* function $(id) {//这里的id必须要是String类型，而传进来的已经是带引号的String。所以定义函数时不要再加引号了
+             return typeof id === 'string' ? document.getElementById('id') : null;
+         }*/
+    }
+
+
+    /*
+    window.onload = function () {
+        // 1. 监听按钮的点击
+        $('btn').onclick = function () {
+            // 1.1 获取用户输入的内容
+            var content = $('my_textarea').value;
+            // console.log(content);
+
+            // 1.2 判断
+            if (content.length === 0) {
+                alert("请输入评论的内容~");
+                return;
+            }
+
+            // 1.3 创建li标签放入ul
+            var li = document.createElement('li');
+            li.innerHTML = content + '<a href="javascript:;">删除</a>';
+            // $('ul').appendChild(li);
+            $('ul').insertBefore(li, $('ul').children[0]);
+
+            // 1.4 清除输入框中的内容
+            $('my_textarea').value = '';
+
+            // 1.5 删除评论
+            var as = $('ul').getElementsByTagName('a');
+
+            for (var i = 0; i < as.length; i++) {
+                var a = as[i];
+                a.onclick = function () {
+                    //  alert(9);
+                    // 1.6 获取父标签,删除
+                    this.parentNode.remove();
+                }
+            }
+        }
+    };
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }*/
+</script>
+</body>
+</html>
