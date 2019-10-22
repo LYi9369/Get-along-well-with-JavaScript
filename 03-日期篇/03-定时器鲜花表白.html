@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #fffdec;
+            text-align: center;
+            padding: 100px;
+        }
+
+        #pic {
+            display: none;
+        }
+
+        #time {
+            font-size: 300px;
+            color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="time">4</div>
+<img id="pic" src="./images/flower.gif" alt="">
+</body>
+<script>
+    window.onload = function (ev) {
+        var intervalID = setInterval(function () {
+            $('time').innerText -= 1;
+
+
+//清除定时器
+            if ($('time').innerText === '0') {
+                clearInterval(intervalID);
+                //显示和隐藏不同的内容
+                $('pic').style.display = 'block';
+                $('time').style.display = 'none';
+            }
+        }, 1000)
+     };
+
+
+    function $(id) {
+        return typeof id === 'string' ? document.getElementById(id) : null;
+    }
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/html">
+    //1.当前时间
+    var dt = new Date()
+    console.log(dt);
+
+    var cDate = new Date();//距离1970-1-1的时间
+    console.log(cDate.getTime());
+    console.log(cDate.getMilliseconds());
+    console.log(cDate.getSeconds());
+    console.log(cDate.getMinutes());
+    console.log(cDate.getHours());
+    console.log(cDate.getDay());
+    console.log(cDate.getDate());
+    console.log(cDate.getFullYear());
+</script>
+<script>
+    var Str = formarDate(new Date());
+    console.log(Str);
+
+    /**
+     * 写函数，格式化日期对象，返回YYY-MM-dd:hh:mm:ss的格式
+     * @param date
+     */
+    function formarDate(d) {
+        //1、验证
+        if (!date instanceof Date) {//instance 可以用于判断date是否为Date对象
+            return;
+        }
+        //2、转化
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        var date = d.getDate();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var second = d.getSeconds();
+
+        //3、转化格式
+        month = month < 10 ? '0' + month : month;
+        date = date < 10 ? '0' + date : date;
+        hour = hour < 10 ? '0' + hour : hour;
+        minute = minute < 10 ? '0' + minute : minute;
+        second = second < 10 ? '0' + second : second;
+
+        return year + '-' + month + '-' + date + '-' + hour + ':' + minute + ':' + second;
+
+    }//直接调用这个函数就可以获取当前时间
+
+</script>
+</body>
+</html>

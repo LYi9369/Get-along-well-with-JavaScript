@@ -149,7 +149,7 @@
             //2.1、盒子的定位
             var currentBox = parentNode.children[i];
             currentBox.style.position = 'absolute';
-            currentBox.style.left = col * (boxWidth + marginXY) + 'px';
+            currentBox.style.left = col * (boxWidth + marginXY) + 'px'; //col初始值为0，也就是第一列即排在最左边，然后第二列的时候，col=1，也就是往右一个标准单位的距离放第二张图片
             currentBox.style.top = row * (boxHeight + marginXY) + 'px';
         }
     }
