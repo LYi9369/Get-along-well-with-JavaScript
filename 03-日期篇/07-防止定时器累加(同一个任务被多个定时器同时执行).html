@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+
+    window.onload = function (ev) {
+        //1、获取box标签
+        var box = document.getElementById('box');
+        var height = 0, intervalId;
+
+        /**防止定时器累加
+         * “先清后设”
+         * 先清除后设置
+         * @type {number}
+         */
+
+        //2、监听鼠标进入
+        box.addEventListener('mouseover', function (ev) {
+            //清除定时器
+            clearInterval(intervalId);//只需要加这一句
+
+            //设置定时器
+            intervalId = setInterval(function () {
+                height += 1;
+                console.log(height);
+            }, 1000);
+        });
+
+    }
+
+</script>
+</body>
+</html>

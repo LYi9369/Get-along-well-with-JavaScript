@@ -5,25 +5,35 @@
     <title>Title</title>
     <style>
         #time {
-
-            font-size: 60px;
-            color: purple;
+            /*width: 800px;*/
+            /*height: 200px;*/
+            font-size: 30px;
+            color: skyblue;
             text-align: center;
-            margin-top: 20%;
+            margin: 5% auto 0;
+
         }
 
+       .img{
+           display: flex;
+           justify-content: center;
+
+        }
     </style>
 </head>
 <body>
 <div id="time">
+</div>
 
+<div class="img">
+<!--    <img src="images/云深.jpg" width="240" height="500" alt="">-->
 </div>
 <script>
 
     window.onload = function (ev) {
-        var currentDate, currentTime, nextTime, allTime, allSecond;
+        var currentDate, currentTime, firstTime, allTime, allSecond;
         var time = document.getElementById('time');
-        var nextDate = new Date('2020/01/01 00:00:00');
+        var nextDate = new Date('2019/03/19 00:42:00');
 //开启定时器
         setInterval(function () {
             //获取当前时间
@@ -31,24 +41,25 @@
 
             //获取毫秒数
             currentTime = currentDate.getTime();//获取现在到1970/1/1的毫秒数
-            nextTime = nextDate.getTime();//获取未来指定时间到1970/1/1的毫秒数
-            // console.log(currentTime, nextTime);
+            firstTime = nextDate.getTime();//获取未来指定时间到1970/1/1的毫秒数
+            // console.log(currentTime, firstTime);
 
             //获取剩余毫秒数
-            allTime = nextTime - currentTime;
+            allTime = currentTime - firstTime;
 
             //将毫秒转换为年月日时分秒的日期形式
             allSecond = parseInt(allTime / 1000);
-            var day = size(parseInt(allSecond / 3600 / 24));
-            var year = size(parseInt(day / 365));
-            var month = size(parseInt(day / 30));
+            var allDay = size(parseInt(allSecond / 3600 / 24));
+            var days = size(parseInt(allSecond / 3600 % 24));
+            var year = size(parseInt(allDay/ 365));
+            var month = size(parseInt(allDay / 30));
             var hour = size(parseInt(allSecond / 3600 % 24));
             var minite = size(parseInt(allSecond / 60 % 60));
             var second = size(parseInt(allSecond % 60));
             // console.log(year + '年' + month + '月' + day + '天' + hour + '小时' + minite + '分' + second + '秒');
 
             //将数据显示在屏幕上
-            time.innerText = '距离元旦还有：' + year + '年' + month + '月' + day + '天' + hour + '时' + minite + '分' + second + '秒';
+            time.innerText = '距离第一次聊天已经过：' + year + '年' + month + '月' + days + '天' + hour + '时' + minite + '分' + second + '秒';
 
         }, 1000);
 
@@ -58,5 +69,7 @@
         }
     }
 </script>
+
+
 </body>
 </html>
