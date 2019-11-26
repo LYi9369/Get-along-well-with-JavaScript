@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 90px;
+            height: 90px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始动画</button>
+<div id="box"></div>
+</body>
+<script>
+    window.addEventListener('load', function (ev) {
+        //1、获取标签
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var intervalID = null, begin = 0, step = 50, target = 599;//用于接收定时器的变量
+
+
+        //2、事件触发
+        btn.addEventListener('click', function (ev) {
+            //2.1、清除定时器：‘先清后设’
+            clearInterval(intervalID);
+
+            //2.2、设置定时器
+            intervalID = setInterval(function () {
+                begin += step;
+
+                //判断
+                if (begin >= target) {
+                    begin = target;//设定运动的上限
+                    clearInterval(intervalID);
+                }
+                console.log(begin);
+                //动画运行
+                box.style.marginLeft = begin + 'px';
+
+            }, 10);
+        });
+
+
+    })
+
+</script>
+</html>

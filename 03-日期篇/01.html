@@ -1,0 +1,134 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>购物商场</title>
+    <style type="text/css">
+        .main-content {
+            background-color: skyblue;
+            text-align: left;
+            /* margin:10px 20px 20px 30px; */
+            margin-top: 40px;
+            margin-left: 100px;
+            background-image: url("https://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E8%8F%9C%E5%8D%95%20%E8%83%8C%E6%99%AF&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=&latest=&copyright=&cs=2008348185,36975092&os=3672036399,1563871749&simid=0,0&pn=6&rn=1&di=4400&ln=1067&fr=&fmq=1574260051380_R&ic=&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fpic.58pic.com%2F58pic%2F12%2F54%2F39%2F58e58PICgwb.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined");
+            text-align: left;
+        }
+
+        li {
+            list-style: none;
+            float: right;
+        }
+
+        .left {
+            float: left;
+            margin-left: 300px;
+            padding: 5px;
+            box-shadow: 10px 10px 10px #000;
+            border: 1px solid #000;
+        }
+
+        .right {
+            float: right;
+            /* position: absolute; */
+            /* background-color: red; */
+            margin-right: 300px;
+            padding: 5px;
+            box-shadow: 10px 10px 10px #000;
+            border: 1px solid #000;
+        }
+
+        .submit, .reset {
+            margin-top: 20px;
+            background-color: #38f;
+            color: white;
+            font-size: 20px;
+        }
+
+        .bottom {
+            position: absolute;
+            top: 60%;
+            left: 40%;
+            background-color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .see {
+            box-shadow: 10px 10px 10px #000;
+            border: 1px solid #000;
+            margin-top: 20px;
+            font-size: 50px;
+            text-decoration: none;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="main-content">
+    <form action="buydata.jsp" method="POST">
+        <div class="left">
+            <input type="checkbox" name="data" value="猪肉">
+            <li>猪肉 ¥18.9/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="羊肉">
+            <li>羊肉 ¥32.5/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="白菜">
+            <li>白菜 ¥8.3/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="辣椒">
+            <li>辣椒¥12.2/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="白萝卜">
+            <li>白萝卜 ¥4.9/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="牛肉">牛肉 ¥22.1/500g
+            </li> <br> <br> <input type="checkbox" name="data" value="西红柿">
+            <li>西红柿¥12.7/500g</li>
+            <br>
+        </div>
+        <div class="right">
+            <input type="checkbox" name="data" value="猪肉">
+            <li>猪肉 ¥18.9/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="羊肉">
+            <li>羊肉 ¥32.5/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="白菜">
+            <li>白菜 ¥8.3/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="辣椒">
+            <li>辣椒 ¥12.2/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="白萝卜">
+            <li>白萝卜 ¥4.9/500g</li>
+            <br> <br> <input type="checkbox"
+                             name="data" value="鸡肉">鸡肉 ¥22.1/500g
+            </li> <br> <br> <input type="checkbox" name="data" value="西红柿">
+            <li>西红柿¥12.7/500g</li>
+            <br>
+        </div>
+
+    </form>
+    <div class="bottom">
+        <input class="submit" type="submit" value="提交订单">   <input
+            class="reset" type="reset" value="重新选择"><br>   <a
+            class="see" href="display.jsp">查看购物车</a>
+    </div>
+</div>
+</body>
+</html>

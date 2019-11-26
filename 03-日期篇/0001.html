@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
+
+<%
+int score=0;
+String q1=request.getParameter("q1");
+String q2=request.getParameter("q2");
+String[] q3=request.getParameterValues("q3");
+
+if(q1!=null&&q1.equals("81")){    score+=10;    }
+if(q2!=null&&q2.equals("3")){    score+=10;    }
+if(q3!=null&&q3.length==1&&q3[0].equals("π")){
+score+=10;    }
+//out.print("<h2>你的成绩=" + score + "</h2>");
+
+score_list.put((String)session.getAttribute("username"), score);
+application.setAttribute("scorelist", score_list);
+response.sendRedirect("logout.jsp");
+%>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin-top: 20%;
+            text-align: center;
+        }
+
+        #name {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<button id="begin">开始点名</button>
+<button id="end">结束点名</button>
+<div id="name"></div>
+
+
+<script>
+    /**
+     * 原理：
+     * （1）开始运行点名册时，调用定时器生成数组随机下标并显示内容
+     * (2)点击停止点名时，清除定时器然后将最后生成的下标对应的数据显示
+     * @param ev
+     */
+    window.onload = function (ev) {
+        //1、获取标签
+        var begin = document.getElementById('begin');
+        var end = document.getElementById('end');
+        var name = document.getElementById('name');
+        //2、定义变量
+        var intervalID = null;
+        var nameArr = ['小米', '小洪', '小刚'];
+        name.innerText = '小洪';
+
+        //3、监听点击
+        begin.onclick = function (ev) {
+            intervalID = setInterval(function () {
+                //3.1 产生随机数
+                var rand_index = parseInt(Math.random() * nameArr.length);
+                // var name = nameArr[rand_index];//产生的随机名字
+                name.innerText = nameArr[rand_index];
+            }, 50)
+        };
+
+        end.onclick = function (ev) {
+            clearInterval(intervalID);
+
+        }
+    }
+
+
+</script>
+<!--<script>-->
+<!--    window.onload = function () {-->
+<!--        // 1. 获取标签-->
+<!--        var begin = document.getElementById("begin");-->
+<!--        var end = document.getElementById("end");-->
+<!--        var name = document.getElementById("name");-->
+
+<!--        // 2. 定义变量-->
+<!--        var timer = null;-->
+<!--        var nameArr = ["旋之华", "张三", "李四", "王五", "周杰伦", "谢霆锋", "张三丰"];-->
+<!--        name.innerText = nameArr[0];-->
+
+<!--        // 3. 监听点击-->
+<!--        begin.onclick = function () {-->
+<!--            // 3.1 清除定时器-->
+<!--            clearInterval(timer);-->
+
+<!--            // 3.2 设置定时器-->
+<!--            timer = setInterval(function () {-->
+<!--                // 3.3 随机数-->
+<!--                var s_index = parseInt(Math.random() * nameArr.length);-->
+<!--                var s_name = nameArr[s_index];-->
+<!--                name.innerText = s_name;-->
+<!--            }, 20);-->
+<!--        };-->
+
+<!--        end.onclick = function () {-->
+<!--            clearInterval(timer);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+</body>
+</html>

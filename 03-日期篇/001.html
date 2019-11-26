@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
+{ %>
+
+<h3>小学数学在线测试</h3>
+<form action="testSubmit.jsp" onsubmit="return confirm('提交？')">
+    （1）：9*9= <input type="text" name="q1"/> <br> <br>
+    （2）：十以内的质数有几个 <br> <input type="radio" value="1" name="q2">
+    1 <input type="radio" value="2" name="q2"> 2 <input
+        type="radio" value="3" name="q2"> 3
+    <input
+            type="radio" value="4" name="q2"> 4
+    <br> <br>
+    （3）：半径为1的圆面积是 <br> <input type="checkbox" value="1" name="q3">
+    1 <input type="checkbox" value="π" name="q3">π <input
+        type="checkbox" value="2π" name="q3">2π <br>
+    <br>
+    <button type="submit">提交</button>
+</form>
+
+
+<%
+
+%>
