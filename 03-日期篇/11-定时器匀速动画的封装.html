@@ -17,15 +17,42 @@
 
 <script>
     window.addEventListener('load', function (ev) {
-
+        linearAnimation('btn', 'box', 50, 800);
     });
 
 
-    function linearAnimation(btnID, boxID,step,target) {
+    function linearAnimation(btnID, boxID, step, target) {
+
+        //1、获取标签
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var intervalID = null, begin = 0;//用于接收定时器的变量
+
+
+        //2、事件触发
+        btn.addEventListener('click', function (ev) {
+            //2.1、清除定时器：‘先清后设’
+            clearInterval(intervalID);
+
+            //2.2、设置定时器
+            intervalID = setInterval(function () {
+                begin += step;
+
+                //判断
+                if (begin >= target) {
+                    begin = target;//设定运动的上限
+                    clearInterval(intervalID);
+                }
+                console.log(begin);
+                //动画运行
+                box.style.marginLeft = begin + 'px';
+
+            }, 10);
+        });
 
 
 
-    }
+
 
     }
 
